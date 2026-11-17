@@ -402,6 +402,34 @@ footer>.wrap:first-child{display:block}
 @media(max-width:480px){.bar .logo img{height:24px}.tagl{letter-spacing:.08em;gap:10px}.tagl i{display:none}}
 .pc{overflow:hidden}
 main{overflow-x:clip}
+
+/* ===== Иконки разделов на первом экране ===== */
+.tile .ic{position:relative;width:78px;height:78px;display:grid;place-items:center;border-radius:50%;background:radial-gradient(circle at 50% 45%,rgba(232,112,42,.22),rgba(232,112,42,.04) 58%,transparent 72%);transition:transform .35s}
+.tile .ic::before{content:"";position:absolute;inset:4px;border-radius:50%;border:1px dashed rgba(255,255,255,.14);transition:border-color .3s}
+.tile .ic::after{content:"";position:absolute;inset:-2px;border-radius:50%;border:1px solid transparent;border-top-color:var(--accent);border-right-color:rgba(232,112,42,.35);opacity:0;transition:opacity .3s}
+.tile .ic svg{width:54px;height:54px;stroke:#e9e9e9;stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 4px 6px rgba(0,0,0,.6));transition:filter .3s,transform .35s}
+.tile .ic svg .a{stroke:var(--accent)}
+.tile .ic svg .f{fill:var(--accent);stroke:none}
+.tile .ic svg .bf{fill:rgba(255,255,255,.035);stroke:none}
+.tile .ic svg .g{stroke:rgba(255,255,255,.22);stroke-width:.8}
+.tile .ic svg .beam{fill:rgba(232,112,42,.16);stroke:none;transition:fill .3s}
+.tile{background:linear-gradient(180deg,rgba(28,28,28,.72),rgba(14,14,14,.6));border:1px solid rgba(255,255,255,.07)}
+.tile span{transition:color .3s}
+.tile:hover{border-color:rgba(232,112,42,.7);box-shadow:0 14px 34px -14px rgba(232,112,42,.55)}
+.tile:hover .ic{transform:translateY(-2px)}
+.tile:hover .ic::before{border-color:rgba(232,112,42,.35)}
+.tile:hover .ic::after{opacity:1;animation:spin 3.5s linear infinite}
+.tile:hover .ic svg{filter:drop-shadow(0 4px 6px rgba(0,0,0,.6)) drop-shadow(0 0 10px rgba(232,112,42,.55));transform:scale(1.06)}
+.tile:hover .ic svg .beam{fill:rgba(232,112,42,.32)}
+.tile:hover span{color:#fff}
+.tile:hover .w1{animation:wave 1.1s ease-in-out infinite}
+.tile:hover .w2{animation:wave 1.1s ease-in-out .25s infinite}
+.tile:hover .s1{animation:spark .9s ease-in-out infinite}
+.tile:hover .s2{animation:spark .9s ease-in-out .15s infinite}
+.tile:hover .s3{animation:spark .9s ease-in-out .3s infinite}
+@keyframes wave{0%,100%{opacity:.25}50%{opacity:1}}
+@keyframes spark{0%,100%{opacity:1}50%{opacity:.3}}
+@media(max-width:860px){.tile .ic{width:64px;height:64px}.tile .ic svg{width:44px;height:44px}}
 /* ===== Живые эффекты ===== */
 /* 1. свет от курсора */
 .spot{position:fixed;left:0;top:0;width:380px;height:380px;margin:-190px 0 0 -190px;border-radius:50%;pointer-events:none;z-index:5;background:radial-gradient(circle,rgba(232,112,42,.15) 0,rgba(232,112,42,.06) 32%,transparent 66%);mix-blend-mode:screen;opacity:0;transition:opacity .4s;will-change:transform}
@@ -661,6 +689,14 @@ var items=[
  ["Энергия","Электропитание","Силовой распределитель","Безопасная раздача питания на площадке.","от 1 200 ₽ / сутки",[["Выходы","6 × 220 В"],["Защита","УЗО"],["Вход","32 А"]]]
  ,["Звук","Акустические системы","Линейный массив Meyer Sound","Подвесной массив для больших залов и площадок.","расчёт по запросу",[["Конфигурация","подвесной массив"],["Мощность","по расчёту"],["Монтаж","наши техники"]]]
 ];
+var tileIcons={
+ "Звук":'<svg viewBox="0 0 64 64"><path class="bf" d="M18 8h28a3 3 0 0 1 3 3v42a3 3 0 0 1-3 3H18a3 3 0 0 1-3-3V11a3 3 0 0 1 3-3z"/><rect x="15" y="8" width="34" height="48" rx="3"/><circle cx="32" cy="19" r="5"/><circle class="a f" cx="32" cy="19" r="1.6"/><circle cx="32" cy="40" r="11"/><circle cx="32" cy="40" r="6.5"/><circle class="a f" cx="32" cy="40" r="2.4"/><path d="M19 52h2M43 52h2"/><path class="a w1" d="M54 33q3 7 0 14"/><path class="a w2" d="M58.5 29q5 11 0 22"/></svg>',
+ "Свет":'<svg viewBox="0 0 64 64"><path class="beam" d="M26 19L9 1h46L38 19z"/><path class="a" d="M26.5 18.5L15 4M37.5 18.5L49 4"/><path class="bf" d="M16 50h32v8H16z"/><rect x="14" y="50" width="36" height="8" rx="2"/><path d="M19 50V31a5 5 0 0 1 5-5M45 50V31a5 5 0 0 0-5-5"/><circle cx="32" cy="31" r="12"/><circle cx="32" cy="31" r="7.5"/><circle cx="32" cy="31" r="4.5" class="g"/><circle class="a f" cx="32" cy="31" r="2.4"/><circle class="a f" cx="44" cy="54" r="1.2"/><path d="M19 54h14"/></svg>',
+ "Сцена":'<svg viewBox="0 0 64 64"><path class="bf" d="M6 58l26-8 26 8z"/><path d="M8 12h48M8 19h48"/><path d="M8 12l7 7 7-7 7 7 7-7 7 7 7-7 7 7"/><path d="M8 12v44M14 12v44M50 12v44M56 12v44"/><path d="M8 24l6 6-6 6 6 6-6 6 6 6M56 24l-6 6 6 6-6 6 6 6-6 6"/><path d="M4 58h56"/><path class="a" d="M24 19v4M40 19v4"/><path class="a f" d="M21 23h6l-1 5h-4zM37 23h6l-1 5h-4z"/><path class="beam" d="M22 28l-6 22h16L26 28zM38 28l-6 22h16l-6-22z"/></svg>',
+ "Видео":'<svg viewBox="0 0 64 64"><path class="bf" d="M7 9h50v32H7z"/><rect x="6" y="8" width="52" height="34" rx="2"/><path class="g" d="M6 16.5h52M6 25h52M6 33.5h52M15 8v34M23.5 8v34M32 8v34M40.5 8v34M49 8v34"/><path class="a f" d="M28 18l10 7-10 7z"/><path d="M32 42v9M20 58l12-7 12 7M26 58h12"/></svg>',
+ "Спецэффекты":'<svg viewBox="0 0 64 64"><path class="bf" d="M24 46h16v12H24z"/><rect x="22" y="45" width="20" height="13" rx="2"/><path d="M26 51h12"/><path class="a s1" d="M32 42V16"/><path class="a s2" d="M29 42l-9-20M35 42l9-20"/><path class="a s3" d="M27 43L13 30M37 43l14-13"/><circle class="a f s1" cx="32" cy="11" r="1.8"/><circle class="a f s2" cx="18" cy="18" r="1.5"/><circle class="a f s2" cx="46" cy="18" r="1.5"/><circle class="a f s3" cx="10" cy="27" r="1.3"/><circle class="a f s3" cx="54" cy="27" r="1.3"/><path class="a s3" d="M24 8l1.5 3M40 8l-1.5 3"/></svg>',
+ "Энергия":'<svg viewBox="0 0 64 64"><path class="bf" d="M10 21h44v29H10z"/><path d="M21 20v-6h22v6"/><rect x="8" y="20" width="48" height="32" rx="4"/><path class="a f" d="M33 24L22 39h8l-3 10 12-16h-8l3-9z"/><circle cx="47" cy="29" r="4"/><path d="M47 29l2-2"/><path d="M44 38h6M44 43h6"/><circle cx="16" cy="56" r="3"/><circle cx="48" cy="56" r="3"/><path d="M14 26h4M14 31h4"/></svg>'
+};
 var cats=Object.keys(icons),cur="Звук",query="";
 var side=document.getElementById("side"),list=document.getElementById("list"),detail=document.getElementById("detail");
 function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;")}
@@ -864,7 +900,7 @@ document.getElementById("form").addEventListener("submit",function(e){
  e.innerHTML=h;
  var T=[["Звук","Звуковое оборудование"],["Свет","Световое оборудование"],["Сцена","Сценические конструкции"],["Видео","LED-экраны и видео"],["Спецэффекты","Спецэффекты"],["Энергия","Энерго-обеспечение"]];
  var t=document.getElementById("tiles");
- t.innerHTML=T.map(function(x){return '<button class="tile" type="button" data-c="'+x[0]+'">'+icons[x[0]]+'<span>'+x[1]+'</span></button>'}).join("");
+ t.innerHTML=T.map(function(x){return '<button class="tile" type="button" data-c="'+x[0]+'"><span class="ic">'+tileIcons[x[0]]+'</span><span>'+x[1]+'</span></button>'}).join("");
  t.addEventListener("click",function(ev){var b=ev.target.closest(".tile");if(b)goCat(b.dataset.c)});
  document.getElementById("facts").innerHTML=
   '<div><b><span class="cnt" data-to="'+items.length+'">'+items.length+'</span><em>+</em></b><span>позиций в каталоге</span></div>'+
