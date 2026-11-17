@@ -817,10 +817,13 @@ document.getElementById("form").addEventListener("submit",function(e){
    btn.textContent="Отправлено ✓";
    setTimeout(function(){btn.disabled=false;btn.textContent="Отправить заявку"},4000);
   })
-  .catch(function(){
+  .catch(function(err){
    clearTimeout(timer);
    btn.disabled=false;btn.textContent="Отправить заявку";
-   note.innerHTML='Не получилось отправить заявку. <a href="'+wa+'" target="_blank" rel="noopener">Отправьте её в WhatsApp</a> — текст уже готов — или позвоните 8 917 004-26-28.';
+   var why=String(err&&err.message||err||"");
+   if(window.console)console.warn("Заявка не отправлена:",why);
+   if(/activat/i.test(why)){note.innerHTML='Форма ещё не активирована: владельцу сайта отправлено письмо со ссылкой «Activate Form». Пока можно <a href="'+wa+'" target="_blank" rel="noopener">отправить заявку в WhatsApp</a>.<br><small style="color:var(--muted)">'+esc(why)+'</small>';return}
+   note.innerHTML='<small style="color:var(--muted);display:block">Причина: '+esc(why||"нет ответа сервера")+'</small>Не получилось отправить заявку. <a href="'+wa+'" target="_blank" rel="noopener">Отправьте её в WhatsApp</a> — текст уже готов — или позвоните 8 917 004-26-28.';
   });
 });
 
