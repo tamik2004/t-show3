@@ -805,22 +805,27 @@ document.getElementById("form").addEventListener("submit",function(e){
   "Имя":n,"Телефон":t,"Дата мероприятия":ds||"не указана","Комментарий":msg||"—",
   "Смета":smeta||"не собрана","Ориентир по смете":tt.t?("от "+rub(tt.t)+" / сутки"+(tt.req?" + позиции по запросу":"")):"—"};
  btn.disabled=true;btn.textContent="Отправляем…";note.textContent="";
- var ctl=window.AbortController?new AbortController():null,timer=setTimeout(function(){if(ctl)ctl.abort()},15000);
- fetch("https://formsubmit.co/ajax/"+MAIL,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(data),signal:ctl?ctl.signal:undefined})
-  .then(function(r){return r.json().then(function(j){if(!r.ok||String(j.success)!=="true")throw new Error(j.message||r.status);return j})})
-  .then(function(){
-   clearTimeout(timer);
+ var done=false,slow=setTimeout(function(){if(!done)btn.textContent="Ещё немного…"},6000);
+ var ctl=window.AbortController?new AbortController():null,timer=setTimeout(function(){if(!done&&ctl)ctl.abort("timeout")},60000);
+ function finish(){done=true;clearTimeout(timer);clearTimeout(slow)}
+ function okSent(text){
    document.getElementById("sent").hidden=false;
+   if(text)document.querySelector("#sent p").innerHTML=text;
    ["name","tel","date","msg"].forEach(function(id){document.getElementById(id).value=""});
    document.getElementById("ok").checked=false;
    cart={};saveCart();renderCart();
    btn.textContent="Отправлено ✓";
    setTimeout(function(){btn.disabled=false;btn.textContent="Отправить заявку"},4000);
-  })
+ }
+ fetch("https://formsubmit.co/ajax/"+MAIL,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(data),signal:ctl?ctl.signal:undefined})
+  .then(function(r){return r.json().then(function(j){if(!r.ok||String(j.success)!=="true")throw new Error(j.message||r.status);return j})})
+  .then(function(){finish();okSent()})
   .catch(function(err){
-   clearTimeout(timer);
-   btn.disabled=false;btn.textContent="Отправить заявку";
+   finish();
    var why=String(err&&err.message||err||"");
+   if(err&&(err.name==="AbortError"||why==="timeout")){
+    okSent('Сервис доставки отвечает дольше обычного, но заявка, скорее всего, уже у нас. Если не перезвоним в течение часа — <a href="'+wa+'" target="_blank" rel="noopener">напишите в WhatsApp</a> или позвоните 8 917 004-26-28.');return}
+   btn.disabled=false;btn.textContent="Отправить заявку";
    if(window.console)console.warn("Заявка не отправлена:",why);
    if(/activat/i.test(why)){note.innerHTML='Форма ещё не активирована: владельцу сайта отправлено письмо со ссылкой «Activate Form». Пока можно <a href="'+wa+'" target="_blank" rel="noopener">отправить заявку в WhatsApp</a>.<br><small style="color:var(--muted)">'+esc(why)+'</small>';return}
    note.innerHTML='<small style="color:var(--muted);display:block">Причина: '+esc(why||"нет ответа сервера")+'</small>Не получилось отправить заявку. <a href="'+wa+'" target="_blank" rel="noopener">Отправьте её в WhatsApp</a> — текст уже готов — или позвоните 8 917 004-26-28.';
