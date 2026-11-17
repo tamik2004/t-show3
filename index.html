@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>T-SHOW — аренда звука, света и сцены в Саранске</title>
+<meta name="description" content="Аренда профессионального звукового, светового и сценического оборудования в Саранске. Доставка, монтаж и техник на площадке. Смета за час — звоните 8 917 004-26-28.">
+<meta name="theme-color" content="#121212">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="T-SHOW — аренда звука, света и сцены в Саранске">
+<meta property="og:description" content="Звук, свет, сцена, видео и спецэффекты в аренду. Доставка, монтаж и техник на площадке.">
+<meta property="og:image" content="https://tamik2004.github.io/t-show3/assets/og.jpg">
+<meta property="og:url" content="https://tamik2004.github.io/t-show3/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" as="image" href="assets/stage.webp">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"T-SHOW","description":"Аренда звукового, светового и сценического оборудования","telephone":"+79170042628","image":"https://tamik2004.github.io/t-show3/assets/og.jpg","url":"https://tamik2004.github.io/t-show3/","address":{"@type":"PostalAddress","addressLocality":"Саранск","addressCountry":"RU"},"areaServed":"Саранск","openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"09:00","closes":"21:00"}}</script>
+<style>
+:root{--bg:#121212;--panel:#1d1d1d;--panel2:#242424;--line:#333;--text:#f2f2f2;--muted:#9a9a9a;--accent:#e8702a;--font:"Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--bg);color:var(--text);font:16px/1.55 var(--font);padding-bottom:env(safe-area-inset-bottom,0)}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.tag{color:var(--accent);font-size:13px;letter-spacing:.14em;font-weight:600}
+h1,h2,h3{font-weight:600;line-height:1.12}
+header{position:sticky;top:0;z-index:10;background:rgba(18,18,18,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:20px;height:64px}
+.logo{font-weight:700;letter-spacing:.12em;font-size:18px;display:flex;align-items:center;gap:10px}
+.logo svg{width:24px;height:24px}
+nav{display:flex;gap:26px}
+nav a{color:var(--muted);font-size:13px;letter-spacing:.1em;text-transform:uppercase}
+nav a:hover{color:var(--text)}
+.phone{font-size:14px;white-space:nowrap}
+.btn{display:inline-block;border:1px solid var(--text);padding:12px 22px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;background:transparent;cursor:pointer;transition:background .15s,color .15s}
+.btn:hover{background:var(--text);color:#111}
+.btn.fill{background:var(--accent);border-color:var(--accent);color:#111;font-weight:600}
+.btn.fill:hover{background:#ff8a45;border-color:#ff8a45}
+.hero{position:relative;padding:110px 0 100px;border-bottom:1px solid var(--line);overflow:hidden;background:
+ repeating-linear-gradient(45deg,transparent 0 119px,rgba(255,255,255,.04) 119px 120px),
+ repeating-linear-gradient(-45deg,transparent 0 119px,rgba(255,255,255,.04) 119px 120px),
+ radial-gradient(ellipse at 70% 40%,#2a2a2a 0,transparent 60%)}
+.hero h1{font-size:clamp(36px,6vw,68px);max-width:14em;margin:18px 0 22px}
+.hero p{max-width:34em;color:#d8d8d8;font-size:18px;margin-bottom:34px}
+.hero .cta{display:flex;gap:14px;flex-wrap:wrap}
+.facts{display:flex;gap:44px;flex-wrap:wrap;margin-top:60px;padding-top:28px;border-top:1px solid var(--line)}
+.facts b{display:block;font-size:28px;font-weight:600}
+.facts span{color:var(--muted);font-size:14px}
+section{padding:90px 0}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:34px}
+.sec-head h2{font-size:clamp(28px,4vw,42px);margin-top:10px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tab{border:1px solid var(--line);background:transparent;padding:9px 16px;font-size:14px;cursor:pointer;color:var(--muted)}
+.tab[aria-pressed=true]{border-color:var(--accent);color:var(--text)}
+.tab small{color:var(--accent);margin-left:6px;font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px}
+.card{background:var(--panel);display:flex;flex-direction:column}
+.thumb{height:150px;display:grid;place-items:center;background:radial-gradient(circle at 50% 55%,rgba(232,112,42,.16),transparent 62%),var(--panel2);border-bottom:1px solid var(--line);position:relative}
+.thumb svg{width:70px;height:70px;stroke:#cfcfcf;fill:none;stroke-width:1.5}
+.thumb em{position:absolute;left:14px;top:12px;font-style:normal;color:var(--accent);font-size:12px;letter-spacing:.12em;font-weight:600;text-transform:uppercase}
+.card .body{padding:20px;display:flex;flex-direction:column;gap:6px;flex:1}
+.card h3{font-size:18px}
+.card p{color:var(--muted);font-size:14px;flex:1}
+.price{color:var(--accent);font-weight:600;font-size:14px;margin-top:10px}
+.card a{margin-top:12px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:600}
+.alt{background:#171717;border-block:1px solid var(--line)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;border-top:1px solid var(--line)}
+.step{padding:26px 26px 26px 0;border-bottom:1px solid var(--line)}
+.step h3{font-size:19px;margin-bottom:8px}
+.step p{color:var(--muted);font-size:15px}
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
+.svc{border:1px solid var(--line);padding:26px}
+.svc h3{font-size:19px;margin-bottom:8px}
+.svc p{color:var(--muted);font-size:15px}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:start}
+.contact>div{padding:0 44px}
+.contact>div:first-child{padding-left:0;border-right:1px solid var(--line)}
+.contact h2{font-size:clamp(30px,4vw,44px);margin:10px 0 12px}
+.contact h2 span{color:var(--accent)}
+.lead{color:var(--muted);margin-bottom:28px;max-width:26em}
+label{display:block;color:var(--muted);font-size:13px;letter-spacing:.08em;margin:18px 0 8px}
+input[type=text],input[type=tel],input[type=date]{width:100%;background:transparent;border:1px solid #555;padding:14px;color-scheme:dark}
+input::placeholder{color:#666}
+.agree{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--muted);letter-spacing:0;margin:18px 0}
+.agree input{margin-top:3px;accent-color:var(--accent)}
+form .btn{width:100%;padding:16px}
+.note{margin-top:14px;font-size:14px;color:var(--accent);min-height:1.5em}
+.who{display:flex;align-items:center;gap:14px;margin:22px 0 26px}
+.dot{width:44px;height:44px;border:1px solid #666;border-radius:50%;display:grid;place-items:center}
+.dot svg{width:20px;height:20px;stroke:var(--text);fill:none;stroke-width:1.6}
+.who small{display:block;color:var(--muted)}
+.live{display:inline-block;width:8px;height:8px;border-radius:50%;background:#2ecc71;margin-left:6px}
+.k{color:var(--muted);font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin-top:22px}
+.v{font-size:18px}
+.v.big{color:var(--accent);font-size:28px;font-weight:700}
+.soc{display:flex;gap:18px;margin-top:10px;color:var(--muted);font-size:15px}
+.soc a:hover{color:var(--text)}
+footer{border-top:1px solid var(--line);padding:30px 0 calc(30px + env(safe-area-inset-bottom,0px));color:var(--muted);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media(max-width:860px){
+ nav{display:none}.phone{display:none}
+ .hero{padding:70px 0 64px}section{padding:64px 0}
+ .contact{grid-template-columns:1fr}.contact>div{padding:0}.contact>div:first-child{border:0;padding-bottom:44px}
+}
+@media(max-width:480px){.wrap{padding:0 18px}.bar .btn{padding:10px 14px;font-size:12px}.logo{font-size:16px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+.cat{display:grid;grid-template-columns:240px 1fr;gap:48px;align-items:start}
+.side{position:sticky;top:90px}
+.side .k2{color:var(--accent);font-size:13px;letter-spacing:.14em;font-weight:600;margin-bottom:14px}
+.sbtn{display:flex;justify-content:space-between;width:100%;text-align:left;background:none;border:0;border-top:1px solid var(--line);padding:15px 0;color:var(--muted);cursor:pointer;font-size:16px}
+.sbtn b{color:var(--accent);font-weight:600;font-size:14px}
+.sbtn[aria-pressed=true]{color:var(--text);font-weight:600}
+.subs{border-left:1px solid var(--line);margin:0 0 14px 2px;padding-left:14px}
+.subs a{display:block;color:var(--muted);font-size:14px;padding:5px 0}
+.subs a:hover{color:var(--text)}
+.grp{margin-bottom:56px}
+.grp-h{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:22px}
+.grp-h h3{font-size:24px}.grp-h span{color:var(--muted);font-size:13px;letter-spacing:.1em;text-transform:uppercase}
+.card{border:1px solid transparent;transition:border-color .15s,transform .15s}
+.card:hover{border-color:var(--accent);transform:translateY(-3px)}
+.card .more{margin-top:12px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:600}
+.avail{color:var(--muted);font-size:13px;letter-spacing:.12em;text-transform:uppercase;margin-top:12px}
+#detail{position:fixed;inset:0;z-index:30;background:var(--bg);overflow:auto}
+#detail[hidden]{display:none}
+.d-bar{border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0)}
+.d-bar .wrap{display:flex;justify-content:space-between;align-items:center;height:64px}
+.back{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}.back:hover{color:var(--text)}
+.crumb{color:var(--muted);font-size:13px;margin:34px 0 28px}
+.d-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-bottom:60px}
+.d-thumb{height:360px;border:1px solid var(--line)}
+.d-thumb svg{width:150px;height:150px}
+.d-grid h1{font-size:clamp(28px,4vw,44px);margin:10px 0 16px}
+.d-grid p{color:#d0d0d0;max-width:32em}
+.d-price{color:var(--accent);font-size:26px;font-weight:700;margin:14px 0 26px}
+.d-main h2{font-size:26px;margin:0 0 16px}
+table{width:100%;border-collapse:collapse;margin-bottom:60px;max-width:760px}
+td{padding:14px 0;border-top:1px solid var(--line)}td:first-child{color:var(--muted);width:45%}
+.d-main{padding-bottom:calc(60px + env(safe-area-inset-bottom,0px))}
+@media(max-width:860px){
+ .cat{grid-template-columns:1fr;gap:26px}.side{position:static;display:flex;flex-wrap:wrap;gap:8px}
+ .side .k2,.subs{display:none}.sbtn{width:auto;border:1px solid var(--line);padding:9px 16px;gap:8px;font-size:14px}.sbtn[aria-pressed=true]{border-color:var(--accent)}
+ .d-grid{grid-template-columns:1fr;gap:28px}.d-thumb{height:240px}
+}
+.thumb svg{width:100px;height:100px;stroke-linecap:round;stroke-linejoin:round}
+.d-thumb svg{width:200px;height:200px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:center}
+.hero-art{position:relative}
+.hero-art svg{width:100%;height:auto;max-height:430px;stroke:#bdbdbd;fill:none;stroke-width:1.6;stroke-linejoin:round;stroke-linecap:round;animation:float 6s ease-in-out infinite}
+.hero-art .ring{stroke:#444;stroke-dasharray:3 9;transform-origin:200px 215px;animation:spin 60s linear infinite}
+.hero-art .beam{fill:rgba(232,112,42,.2);stroke:none}
+.sweep{transform-origin:196px 78px;animation:sweep 5s ease-in-out infinite}
+.coord{position:absolute;right:0;top:-40px;text-align:right;font-size:11px;letter-spacing:.14em;color:var(--muted)}.coord b{display:block;color:var(--accent);font-weight:600}
+.hero .brk{position:absolute;width:14px;height:14px;border:0 solid #555}
+.brk.a{left:24px;top:24px;border-width:1px 0 0 1px}.brk.b{right:24px;top:24px;border-width:1px 1px 0 0}
+.hero h1 span{color:var(--accent)}
+@keyframes float{50%{transform:translateY(-9px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes sweep{0%,100%{transform:rotate(-16deg)}50%{transform:rotate(16deg)}}
+@keyframes eq{0%,100%{transform:scaleY(.12)}50%{transform:scaleY(1)}}
+@keyframes fade{from{opacity:0;transform:scale(.92)}}
+.eq{display:flex;align-items:flex-end;gap:5px;height:46px;padding:0 24px;max-width:1200px;margin:0 auto;opacity:.75}
+.eq i{flex:1;background:linear-gradient(#e8702a,#6b3414);transform-origin:bottom;animation:eq 1.4s ease-in-out infinite}
+.park{display:grid;grid-template-columns:1fr minmax(280px,430px) 1fr;gap:34px;align-items:center}
+.pcol{display:flex;flex-direction:column}
+.pi{display:flex;align-items:center;gap:16px;background:none;border:0;border-top:1px solid var(--line);padding:26px 0;cursor:pointer;text-align:left;position:relative;font-size:19px;font-weight:600;text-transform:uppercase;line-height:1.2}
+.pcol:last-child .pi{flex-direction:row-reverse;text-align:right}
+.pi:last-child{border-bottom:1px solid var(--line)}
+.pi small{color:var(--accent);font-size:12px;letter-spacing:.1em}
+.pi::after{content:"";position:absolute;bottom:-1px;height:1px;width:0;background:var(--accent);transition:width .3s;left:0}
+.pcol:last-child .pi::after{left:auto;right:0}
+.pi:hover::after,.pi.on::after{width:100%}
+.pi.on{color:#fff}
+.pc{position:relative;aspect-ratio:1;display:grid;place-items:center;background:radial-gradient(circle,rgba(232,112,42,.16),transparent 60%)}
+.pc .rg{position:absolute;inset:0;width:100%;height:100%;fill:none;stroke:#3d3d3d}
+.pc .r1{transform-origin:50% 50%;animation:spin 50s linear infinite}
+.pc .r2{transform-origin:50% 50%;animation:spin 35s linear infinite reverse;stroke:rgba(232,112,42,.5)}
+.pc .art{position:relative;width:56%;animation:fade .45s}
+.pc .art svg{width:100%;height:auto;stroke:#d8d8d8;fill:none;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 14px rgba(232,112,42,.35))}
+.pc .brk{position:absolute;width:16px;height:16px;border:0 solid #666}
+.pc .t1{left:6%;top:6%;border-width:1px 0 0 1px}.pc .t2{right:6%;top:6%;border-width:1px 1px 0 0}.pc .t3{left:6%;bottom:6%;border-width:0 0 1px 1px}.pc .t4{right:6%;bottom:6%;border-width:0 1px 1px 0}
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}.js .rv.in{opacity:1;transform:none}
+@media(max-width:860px){
+ .hero-grid{grid-template-columns:1fr}.hero-art{order:-1;max-width:340px;margin:0 auto 10px}.coord{display:none}
+ .park{grid-template-columns:1fr 1fr;gap:0 20px}.pc{grid-column:1/-1;max-width:320px;margin:0 auto 24px}
+ .pcol:last-child .pi{flex-direction:row;text-align:left}.pi{font-size:15px;padding:18px 0}.pi::after{display:none}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}.js .rv{opacity:1;transform:none}}
+.logo img{height:30px;width:auto;display:block}
+.hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.2;-webkit-mask-image:radial-gradient(ellipse at 55% 45%,#000 25%,transparent 78%);mask-image:radial-gradient(ellipse at 55% 45%,#000 25%,transparent 78%)}
+.hero>.wrap{position:relative;z-index:1}
+@media(max-width:860px){.hero::before{opacity:.16;background-position:60% 30%}}
+
+/* Вариант A: блик и дыхание */
+.logo{position:relative}
+.logo::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(100deg,transparent 38%,rgba(255,255,255,.95) 50%,transparent 62%) 150% 0/250% 100% no-repeat;-webkit-mask:var(--wm) center/100% 100% no-repeat;mask:var(--wm) center/100% 100% no-repeat;animation:shine 4.5s ease-in-out infinite}
+@keyframes shine{0%{background-position:150% 0}45%,100%{background-position:-50% 0}}
+.hero::before{animation:drift 16s ease-in-out infinite alternate,breathe 6s ease-in-out infinite}
+@keyframes drift{from{transform:scale(1) translate(0,0)}to{transform:scale(1.12) translate(-2%,1.5%)}}
+@keyframes breathe{0%,100%{opacity:.16}50%{opacity:.3}}
+
+.thumb svg{width:118px;height:118px}
+.thumb svg .ac{stroke:#e8702a}
+.d-thumb svg{width:210px;height:210px}
+
+.hero.v2{text-align:center}
+.hero.v2::before{background:none;-webkit-mask-image:none;mask-image:none;opacity:1;left:50%;top:50%;right:auto;bottom:auto;inset:auto;width:min(760px,120vw);height:min(760px,120vw);margin:calc(min(760px,120vw)/-2) 0 0 calc(min(760px,120vw)/-2);border:1px dashed rgba(255,255,255,.18);border-radius:50%;animation:spin 70s linear infinite}
+.hero.v2::after{content:"";position:absolute;z-index:0;left:50%;top:50%;width:min(520px,90vw);height:min(520px,90vw);margin:calc(min(520px,90vw)/-2) 0 0 calc(min(520px,90vw)/-2);border:1px dashed rgba(232,112,42,.4);border-radius:50%;animation:spin 45s linear infinite reverse;pointer-events:none}
+.hero.v2 p{margin-left:auto;margin-right:auto}.hero.v2 .cta,.hero.v2 .facts{justify-content:center}
+.hero.v2 h1{margin-left:auto;margin-right:auto;font-size:clamp(26px,4vw,44px)}
+.big-wm{position:relative;width:min(640px,88%);margin:0 auto 26px}
+.big-wm img{width:100%;display:block}
+.big-wm::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(100deg,transparent 38%,rgba(255,255,255,.95) 50%,transparent 62%) 150% 0/250% 100% no-repeat;-webkit-mask:var(--wm2) center/100% 100% no-repeat;mask:var(--wm2) center/100% 100% no-repeat;animation:shine 4.5s ease-in-out infinite}
+
+.thumb{overflow:hidden}.thumb img.ph{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:8px;-webkit-mask-image:radial-gradient(ellipse at center,#000 52%,transparent 96%);mask-image:radial-gradient(ellipse at center,#000 52%,transparent 96%)}
+.pc .art img{width:100%;display:block;-webkit-mask-image:radial-gradient(ellipse at center,#000 50%,transparent 96%);mask-image:radial-gradient(ellipse at center,#000 50%,transparent 96%);filter:drop-shadow(0 0 16px rgba(232,112,42,.3))}
+.hero.v4{padding:46px 0 70px;text-align:center}
+.hero.v4::before{display:none}
+.stagebg{position:absolute;inset:0;z-index:0;background:url(assets/stage.webp) center/cover no-repeat;opacity:.85;-webkit-mask-image:radial-gradient(ellipse 54% 80% at 50% 52%,transparent 62%,#000 100%);mask-image:radial-gradient(ellipse 54% 80% at 50% 52%,transparent 62%,#000 100%);animation:drift 22s ease-in-out infinite alternate}
+.beam{position:absolute;top:-10px;z-index:0;width:240px;height:78%;pointer-events:none;mix-blend-mode:screen;background:linear-gradient(to bottom,rgba(190,205,255,.34),rgba(190,205,255,0) 85%);clip-path:polygon(46% 0,54% 0,100% 100%,0 100%);transform-origin:50% 0}
+.beam.b1{left:16%;animation:bsw 7s ease-in-out infinite alternate}
+.beam.b2{right:16%;animation:bsw 8s ease-in-out infinite alternate-reverse}
+.beam.b3{left:calc(50% - 120px);background:linear-gradient(to bottom,rgba(232,112,42,.2),rgba(232,112,42,0) 80%);animation:bsw 9s ease-in-out infinite alternate;opacity:.8}
+@keyframes bsw{from{transform:rotate(-14deg)}to{transform:rotate(14deg)}}
+.eqp{display:flex;align-items:flex-end;justify-content:center;gap:4px;height:84px;margin:6px auto 4px}
+.eqp i{width:9px;transform-origin:bottom;background:repeating-linear-gradient(to top,#e9e9e9 0 6px,transparent 6px 8px);animation:eq2 1.5s ease-in-out infinite}
+@keyframes eq2{0%,100%{transform:scaleY(.55)}50%{transform:scaleY(1)}}
+.hero.v4 .big-wm{margin:0 auto 14px;width:min(680px,88%)}
+.tagl{display:flex;align-items:center;gap:18px;justify-content:center;max-width:820px;margin:0 auto 38px;color:#d8d8d8;letter-spacing:.2em;font-size:clamp(11px,1.5vw,15px)}
+.tagl i{flex:1;height:1px;background:linear-gradient(90deg,transparent,#777)}.tagl i:last-child{transform:scaleX(-1)}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:900px;margin:0 auto 40px}
+.tile{display:flex;flex-direction:column;align-items:center;gap:12px;padding:20px 8px;border:1px solid transparent;background:rgba(18,18,18,.45);backdrop-filter:blur(3px);color:#e6e6e6;font-size:12px;letter-spacing:.12em;text-transform:uppercase;line-height:1.35;cursor:pointer;transition:border-color .2s,transform .2s}
+.tile:hover{border-color:var(--accent);transform:translateY(-3px)}
+.tile svg{width:54px;height:54px;stroke:#d8d8d8;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.tile svg .ac{stroke:var(--accent)}
+.hero.v4 .cta{justify-content:center}
+@media(max-width:860px){.tiles{grid-template-columns:repeat(2,1fr)}.beam{width:150px}.hero.v4{padding-top:30px}.eqp{height:60px}}
+
+:is(.thumb,.pc .art) svg{stroke:#8d8f99;stroke-width:1.1;filter:drop-shadow(0 8px 10px rgba(0,0,0,.55)) drop-shadow(0 0 14px rgba(232,112,42,.2))}
+:is(.thumb,.pc .art) svg :is(rect,polygon,ellipse,path[d$="z"],path[d$="Z"]){fill:url(#gB)}
+:is(.thumb,.pc .art) svg circle{fill:url(#gR)}
+:is(.thumb,.pc .art) svg .ac{stroke:#e8702a;stroke-width:1.6;fill:none}
+:is(.thumb,.pc .art) svg rect.ac{fill:rgba(232,112,42,.6);stroke:#ff9a5a}
+.thumb img.ph,.pc .art img{-webkit-mask-image:none;mask-image:none;filter:drop-shadow(0 10px 12px rgba(0,0,0,.6)) drop-shadow(0 0 16px rgba(232,112,42,.22))}
+.thumb img.ph{padding:14px}
+.d-bar .logo::after{display:none}
+.card .thumb{height:190px}
+
+/* ===== Доработки v2 ===== */
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.hero .tagl h1{font:inherit;letter-spacing:inherit;margin:0;max-width:none}
+.pack-top em{z-index:2}
+.tiles{grid-template-columns:repeat(6,1fr);max-width:1060px;gap:12px}
+.tile{font-size:11px;padding:18px 6px}
+.tile svg{width:48px;height:48px}
+.hero.v4 .facts{justify-content:center;max-width:900px;margin:44px auto 0;gap:0;border-top:1px solid rgba(255,255,255,.12)}
+.hero.v4 .facts>div{flex:1;min-width:150px;padding:18px 12px 0}
+.hero.v4 .facts b{font-size:26px;color:var(--text)}
+.hero.v4 .facts b em{font-style:normal;color:var(--accent)}
+.hero.v4 .facts span{font-size:13px}
+.hdr-act{display:flex;align-items:center;gap:22px}
+.icon-btn{display:none;width:42px;height:42px;border:1px solid var(--line);place-items:center}
+.icon-btn svg{width:18px;height:18px;stroke:var(--text);fill:none;stroke-width:1.8}
+.smeta-h{position:relative;display:inline-flex;align-items:center;gap:8px}
+.smeta-h i{font-style:normal;background:var(--accent);color:#111;font-weight:700;font-size:11px;min-width:18px;height:18px;border-radius:9px;display:inline-grid;place-items:center;padding:0 5px}
+.smeta-h i:empty{display:none}
+
+/* поиск */
+.cat-tools{display:flex;gap:12px;align-items:center;margin-bottom:28px}
+.search{flex:1;position:relative}
+.search input{width:100%;background:var(--panel);border:1px solid var(--line);padding:14px 16px 14px 44px;color:var(--text)}
+.search input:focus{border-color:var(--accent);outline:0}
+.search svg{position:absolute;left:15px;top:50%;width:18px;height:18px;margin-top:-9px;stroke:var(--muted);fill:none;stroke-width:1.8}
+.empty{color:var(--muted);padding:40px 0}
+
+/* кнопка в смету */
+.card{position:relative}
+.add{position:absolute;right:14px;bottom:16px;z-index:2;border:1px solid var(--line);background:var(--panel2);color:var(--text);font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;padding:8px 12px;cursor:pointer;transition:border-color .15s,background .15s}
+.add:hover{border-color:var(--accent)}
+.add.on{background:var(--accent);border-color:var(--accent);color:#111}
+.card>a.cl{display:flex;flex-direction:column;flex:1;margin:0;font-size:inherit;letter-spacing:normal;text-transform:none;font-weight:inherit}
+.card .more{padding-right:110px}
+.card img.ph{transition:transform .35s}
+.card:hover img.ph{transform:scale(1.05)}
+
+/* комплекты */
+.packs{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.pack{background:var(--panel);border:1px solid var(--line);display:flex;flex-direction:column;position:relative;overflow:hidden;transition:border-color .2s,transform .2s}
+.pack:hover{border-color:var(--accent);transform:translateY(-3px)}
+.pack-top{height:150px;position:relative;display:grid;place-items:center;background:radial-gradient(circle at 50% 60%,rgba(232,112,42,.2),transparent 65%),var(--panel2);border-bottom:1px solid var(--line)}
+.pack-top img{max-height:120px;max-width:80%;filter:drop-shadow(0 10px 12px rgba(0,0,0,.6))}
+.pack-top em{position:absolute;left:16px;top:14px;font-style:normal;color:var(--accent);font-size:12px;letter-spacing:.12em;font-weight:600;text-transform:uppercase}
+.pack-b{padding:22px;display:flex;flex-direction:column;flex:1}
+.pack h3{font-size:20px;margin-bottom:6px}
+.pack .who2{color:var(--muted);font-size:14px;margin-bottom:14px}
+.pack ul{list-style:none;font-size:14px;color:#cfcfcf;flex:1;margin-bottom:16px}
+.pack li{padding:6px 0;border-top:1px dashed #333;display:flex;justify-content:space-between;gap:10px}
+.pack li b{color:var(--muted);font-weight:500;white-space:nowrap}
+.pack .pp{color:var(--accent);font-weight:700;font-size:20px}
+.pack .pp small{display:block;color:var(--muted);font-weight:400;font-size:12px;letter-spacing:.04em}
+.pack .btn{margin-top:16px;text-align:center}
+.pack.hot::before{content:"Популярный";position:absolute;right:-34px;top:18px;transform:rotate(45deg);background:var(--accent);color:#111;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 40px;z-index:2}
+
+/* почему мы */
+.why{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line)}
+.why>div{padding:30px 26px;border-right:1px solid var(--line)}
+.why>div:last-child{border-right:0}
+.why svg{width:34px;height:34px;stroke:var(--accent);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;margin-bottom:16px}
+.why h3{font-size:18px;margin-bottom:8px}
+.why p{color:var(--muted);font-size:14px}
+.services .svc{transition:border-color .2s}
+.services .svc:hover{border-color:#555}
+.svc .n{color:var(--accent);font-size:12px;letter-spacing:.14em;font-weight:600;display:block;margin-bottom:14px}
+.step h3 span{color:var(--accent)}
+
+/* смета */
+#cartBtn{position:fixed;right:24px;bottom:24px;z-index:20;display:none;align-items:center;gap:12px;background:var(--accent);color:#111;border:0;padding:14px 20px;font-weight:700;font-size:14px;letter-spacing:.04em;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.5);animation:fade .3s}
+#cartBtn.show{display:flex}
+#cartBtn svg{width:20px;height:20px;stroke:#111;fill:none;stroke-width:2}
+#cartBtn .c{background:#111;color:var(--accent);border-radius:11px;min-width:22px;height:22px;display:grid;place-items:center;font-size:12px;padding:0 6px}
+#drawer{position:fixed;inset:0;z-index:40;display:none}
+#drawer.open{display:block}
+#drawer .ov{position:absolute;inset:0;background:rgba(0,0,0,.6);animation:fade .2s}
+#drawer .pn{position:absolute;right:0;top:0;bottom:0;width:min(440px,100%);background:var(--panel);border-left:1px solid var(--line);display:flex;flex-direction:column;animation:slide .25s ease-out;padding-top:env(safe-area-inset-top,0)}
+@keyframes slide{from{transform:translateX(100%)}}
+.pn-h{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;border-bottom:1px solid var(--line)}
+.pn-h h2{font-size:22px}
+.x{background:none;border:0;color:var(--muted);font-size:28px;line-height:1;cursor:pointer;padding:4px 8px}.x:hover{color:var(--text)}
+.pn-list{flex:1;overflow:auto;padding:8px 24px}
+.ci{display:grid;grid-template-columns:56px 1fr auto;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+.ci .im{width:56px;height:56px;background:var(--panel2);display:grid;place-items:center;overflow:hidden}
+.ci .im img{max-width:100%;max-height:100%}.ci .im svg{width:40px;height:40px;stroke:#bbb;fill:none;stroke-width:2}
+.ci h4{font-size:15px;font-weight:600;line-height:1.3}
+.ci small{color:var(--accent);font-size:13px}
+.qty{display:flex;align-items:center;border:1px solid var(--line)}
+.qty button{background:none;border:0;width:30px;height:30px;cursor:pointer;color:var(--text);font-size:16px}.qty button:hover{color:var(--accent)}
+.qty span{min-width:22px;text-align:center;font-size:14px}
+.pn-f{padding:20px 24px calc(20px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line)}
+.tot{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
+.tot b{color:var(--accent);font-size:24px}
+.pn-f p{color:var(--muted);font-size:13px;margin-bottom:16px}
+.pn-f .btn{width:100%;text-align:center;padding:15px}
+.pn-f .clr{background:none;border:0;color:var(--muted);font-size:13px;margin-top:12px;cursor:pointer;text-decoration:underline;width:100%}
+.pn-empty{color:var(--muted);padding:40px 0;text-align:center}
+
+/* выбранное в форме */
+.picked{border:1px dashed #555;padding:14px 16px;margin-top:22px;font-size:14px;display:none}
+.picked.show{display:block}
+.picked b{color:var(--accent);font-size:12px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:6px}
+.picked ul{list-style:none;color:#d0d0d0}
+.picked li{padding:2px 0}
+.picked button{background:none;border:0;color:var(--muted);text-decoration:underline;cursor:pointer;font-size:13px;margin-top:6px}
+textarea{width:100%;background:transparent;border:1px solid #555;padding:14px;min-height:90px;resize:vertical;color:var(--text);font:inherit}
+input:focus,textarea:focus{border-color:var(--accent);outline:0}
+.alt-ct{margin-top:14px;font-size:14px;color:var(--muted)}.alt-ct a{color:var(--text);border-bottom:1px solid #555}
+.agree a{color:var(--text);border-bottom:1px solid #555}
+
+/* подвал */
+footer .ft{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:40px;padding-bottom:28px;border-bottom:1px solid var(--line);margin-bottom:22px}
+footer .ft img{height:28px;margin-bottom:14px}
+footer .ft h4{color:var(--text);font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:12px;font-weight:600}
+footer .ft a{display:block;padding:3px 0}footer a:hover{color:var(--text)}
+footer .wrap.cp{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer>.wrap:first-child{display:block}
+
+/* нижняя панель на телефоне */
+.mbar{display:none}
+.d-bar .logo img{height:26px}
+.crumb a:hover{color:var(--text)}
+
+@media(max-width:1000px){.packs{grid-template-columns:repeat(2,1fr)}.why{grid-template-columns:repeat(2,1fr)}.why>div:nth-child(2){border-right:0}.why>div:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+@media(max-width:860px){
+ .icon-btn{display:grid}
+ .hdr-act{gap:10px}
+ .bar>.btn{display:none}
+ .pc{order:-1}
+ .park{grid-template-columns:1fr 1fr}
+ .tiles{grid-template-columns:repeat(3,1fr);gap:8px}
+ .tile{font-size:10px;padding:14px 4px}.tile svg{width:40px;height:40px}
+ .hero.v4 .facts>div{min-width:50%;padding:14px 8px 0}
+ .hero.v4 .facts b{font-size:22px}
+ footer .ft{grid-template-columns:1fr 1fr}footer .ft>div:first-child{grid-column:1/-1}
+ .mbar{display:grid;grid-template-columns:1fr 1fr 1fr;position:fixed;left:0;right:0;bottom:0;z-index:25;background:rgba(18,18,18,.97);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0)}
+ .mbar a,.mbar button{display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px 4px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;background:none;border:0;color:var(--text);cursor:pointer;position:relative}
+ .mbar svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.8}
+ .mbar .call{background:var(--accent);color:#111;font-weight:700}
+ .mbar i{position:absolute;top:6px;left:calc(50% + 6px);font-style:normal;background:var(--accent);color:#111;font-size:10px;font-weight:700;border-radius:8px;min-width:16px;height:16px;display:grid;place-items:center;padding:0 4px}
+ .mbar i:empty{display:none}
+ body{padding-bottom:calc(62px + env(safe-area-inset-bottom,0px))}
+ #cartBtn{display:none!important}
+ .cat-tools{margin-bottom:18px}
+}
+@media(max-width:560px){.packs{grid-template-columns:1fr}.why{grid-template-columns:1fr}.why>div{border-right:0!important;border-bottom:1px solid var(--line)}.why>div:last-child{border-bottom:0}}
+@media(max-width:480px){.bar .logo img{height:24px}.tagl{letter-spacing:.08em;gap:10px}.tagl i{display:none}}
+.pc{overflow:hidden}
+main{overflow-x:clip}
+</style>
+</head>
+<body><script>document.documentElement.className="js"</script><svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="gB" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3d3d44"/><stop offset=".45" stop-color="#232327"/><stop offset="1" stop-color="#111113"/></linearGradient><radialGradient id="gR" cx=".38" cy=".34" r=".8"><stop offset="0" stop-color="#6b7283"/><stop offset=".35" stop-color="#2a2c33"/><stop offset="1" stop-color="#101012"/></radialGradient></defs></svg>
+
+<header>
+ <div class="wrap bar">
+  <a href="#top" class="logo" aria-label="T-SHOW — на главную"><img alt="T-SHOW" src="assets/logo.webp" width="178" height="30"></a>
+  <nav aria-label="Основное меню">
+   <a href="#catalog">Оборудование</a><a href="#packs">Комплекты</a><a href="#services">Услуги</a><a href="#order">Как заказать</a><a href="#contacts">Контакты</a>
+  </nav>
+  <div class="hdr-act">
+   <a class="phone" href="tel:+79170042628">8 917 004-26-28</a>
+   <a class="icon-btn" href="tel:+79170042628" aria-label="Позвонить"><svg viewBox="0 0 24 24"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg></a>
+  </div>
+  <button class="btn smeta-h" type="button" data-open-cart>Смета <i id="hdrCount"></i></button>
+ </div>
+</header>
+
+<main id="top">
+ <div class="hero v4"><div class="stagebg" aria-hidden="true"></div><i class="beam b1"></i><i class="beam b2"></i><i class="beam b3"></i>
+  <div class="wrap"><div class="center">
+   <div class="eqp" id="eqp" aria-hidden="true"></div>
+   <div class="big-wm"><img alt="T-SHOW" src="assets/wordmark.webp" width="680" height="114"></div>
+   <div class="tagl"><i></i><h1>АРЕНДА ПРОФЕССИОНАЛЬНОГО ЗВУКА, СВЕТА И СЦЕНЫ В САРАНСКЕ</h1><i></i></div>
+   <div class="tiles" id="tiles"></div>
+   <div class="cta"><a class="btn fill" href="#contacts">Рассчитать стоимость →</a><a class="btn" href="#catalog">Смотреть каталог</a></div>
+   <div class="facts" id="facts"></div>
+  </div></div></div>
+ <div class="eq" id="eq" aria-hidden="true"></div>
+
+ <section id="park">
+  <div class="wrap">
+   <div class="sec-head"><div><span class="tag">// ПАРК ОБОРУДОВАНИЯ //</span><h2 class="rv">Профессиональные мощности для любых мероприятий</h2></div><a class="btn" href="#catalog">Весь каталог →</a></div>
+   <div class="park rv">
+    <div class="pcol" id="pl"></div>
+    <div class="pc" id="pc" aria-hidden="true">
+     <svg class="rg r1" viewBox="0 0 200 200"><circle cx="100" cy="100" r="96" stroke-dasharray="2 6"/><circle cx="100" cy="100" r="78" stroke-dasharray="1 3"/></svg>
+     <svg class="rg r2" viewBox="0 0 200 200"><circle cx="100" cy="100" r="62" stroke-dasharray="40 18 6 18"/></svg>
+     <i class="brk t1"></i><i class="brk t2"></i><i class="brk t3"></i><i class="brk t4"></i>
+     <div class="art" id="art"></div>
+    </div>
+    <div class="pcol" id="pr"></div>
+   </div>
+  </div>
+ </section>
+
+ <section id="packs" class="alt">
+  <div class="wrap">
+   <div class="sec-head"><div><span class="tag">// ГОТОВЫЕ КОМПЛЕКТЫ //</span><h2>Подобрали под ваше событие</h2></div><p class="lead" style="margin:0;max-width:30em">Состав и ориентир по цене. Добавьте комплект в смету и поменяйте под себя: точную стоимость назовём после уточнения площадки.</p></div>
+   <div class="packs" id="packList"></div>
+  </div>
+ </section>
+
+ <section id="catalog">
+  <div class="wrap">
+   <div class="sec-head"><div><span class="tag">// КАТАЛОГ //</span><h2>Оборудование в аренду</h2></div></div>
+   <div class="cat"><aside class="side" id="side" aria-label="Разделы каталога"></aside>
+    <div>
+     <div class="cat-tools"><label class="search"><span class="sr">Поиск по каталогу</span><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input id="q" type="search" placeholder="Поиск: микрофон, прожектор, дым…" autocomplete="off"></label></div>
+     <div id="list"></div>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <section id="why" class="alt">
+  <div class="wrap">
+   <div class="sec-head"><div><span class="tag">// ПОЧЕМУ T-SHOW //</span><h2>Работаем так, чтобы вы думали о празднике</h2></div></div>
+   <div class="why">
+    <div><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg><h3>Проверено перед выдачей</h3><p>Каждый прибор тестируем на складе. Кабели и крепёж входят в аренду.</p></div>
+    <div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><h3>Смета за час</h3><p>Подбираем комплект под площадку и называем цену до подтверждения.</p></div>
+    <div><svg viewBox="0 0 24 24"><path d="M3 17h2l2-9h10l2 9h2"/><circle cx="8" cy="18" r="2"/><circle cx="16" cy="18" r="2"/><path d="M9 8V5h6v3"/></svg><h3>Под ключ</h3><p>Доставка, монтаж, настройка и демонтаж — наша команда.</p></div>
+    <div><svg viewBox="0 0 24 24"><path d="M4 18v-3a8 8 0 0 1 16 0v3"/><rect x="2" y="15" width="4" height="6" rx="1"/><rect x="18" y="15" width="4" height="6" rx="1"/></svg><h3>Техник на площадке</h3><p>Звукорежиссёр ведёт звук и свет весь вечер и решает вопросы на месте.</p></div>
+   </div>
+  </div>
+ </section>
+
+ <section id="services">
+  <div class="wrap">
+   <div class="sec-head"><div><span class="tag">// УСЛУГИ //</span><h2>Что мы делаем помимо аренды</h2></div></div>
+   <div class="services">
+    <div class="svc"><span class="n">01</span><h3>Доставка и монтаж</h3><p>Привозим технику, собираем систему, подключаем и проверяем до начала мероприятия.</p></div>
+    <div class="svc"><span class="n">02</span><h3>Звукорежиссёр на площадке</h3><p>Техник остаётся на мероприятии, ведёт звук и свет и решает вопросы на месте.</p></div>
+    <div class="svc"><span class="n">03</span><h3>Подбор под площадку</h3><p>Скажите, сколько гостей и где проходит событие. Мы предложим комплект без лишних затрат.</p></div>
+    <div class="svc"><span class="n">04</span><h3>Комплекты под ключ</h3><p>Свадьба, корпоратив, концерт, выставка. Звук, свет и сцена в одном расчёте.</p></div>
+   </div>
+  </div>
+ </section>
+
+ <section id="order" class="alt">
+  <div class="wrap">
+   <div class="sec-head"><div><span class="tag">// КАК ЗАКАЗАТЬ //</span><h2>Четыре шага до готовой площадки</h2></div></div>
+   <div class="steps">
+    <div class="step"><h3><span>01</span> Заявка</h3><p>Соберите смету на сайте, оставьте телефон или напишите в мессенджер: дату, место и формат события.</p></div>
+    <div class="step"><h3><span>02</span> Смета</h3><p>Подбираем комплект и называем точную цену до подтверждения.</p></div>
+    <div class="step"><h3><span>03</span> Монтаж</h3><p>Привозим и устанавливаем оборудование в согласованное время.</p></div>
+    <div class="step"><h3><span>04</span> Демонтаж</h3><p>После мероприятия сами забираем всё и закрываем аренду.</p></div>
+   </div>
+  </div>
+ </section>
+
+ <section id="contacts">
+  <div class="wrap contact">
+   <div>
+    <span class="tag">// ЗАЯВКА НА РАСЧЁТ //</span>
+    <h2>Давайте <span>посчитаем</span></h2>
+    <p class="lead">Оставьте контакты — подготовим точный расчёт сметы и перезвоним.</p>
+    <form id="form" novalidate>
+     <div class="picked" id="picked"><b>Ваша смета</b><ul id="pickedList"></ul><button type="button" data-open-cart>Изменить состав</button></div>
+     <label for="name">ИМЯ</label>
+     <input id="name" type="text" placeholder="Иван Петров" autocomplete="name">
+     <label for="tel">ТЕЛЕФОН</label>
+     <input id="tel" type="tel" placeholder="+7 ___ ___-__-__" autocomplete="tel" inputmode="tel">
+     <label for="date">ДАТА МЕРОПРИЯТИЯ</label>
+     <input id="date" type="date">
+     <label for="msg">ПЛОЩАДКА, ЧИСЛО ГОСТЕЙ, ПОЖЕЛАНИЯ</label>
+     <textarea id="msg" placeholder="Например: банкетный зал, 80 гостей, нужен ведущий микрофон и танцпол"></textarea>
+     <label class="agree"><input id="ok" type="checkbox"><span>Согласен на обработку персональных данных в соответствии с <a href="privacy.html" target="_blank">политикой конфиденциальности</a></span></label>
+     <button class="btn fill" type="submit">Отправить заявку в WhatsApp</button>
+     <p class="note" id="note" role="status"></p>
+     <p class="alt-ct">Нет WhatsApp? Позвоните: <a href="tel:+79170042628">8 917 004-26-28</a></p>
+    </form>
+   </div>
+   <div>
+    <h2 style="font-size:clamp(26px,3.4vw,36px)">Свяжитесь напрямую</h2>
+    <div class="who"><div class="dot"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div><div><b>Менеджер на связи<span class="live"></span></b><small>ежедневно с 9:00 до 21:00</small></div></div>
+    <div class="k">Телефон</div><a class="v big" href="tel:+79170042628">8 917 004-26-28</a>
+    <div class="k">Город</div><div class="v">Саранск и Республика Мордовия</div>
+    <div class="k">Время работы</div><div class="v">Ежедневно, с 9:00 до 21:00</div>
+    <div class="k">Мессенджеры</div>
+    <div class="soc"><a href="https://wa.me/79170042628" target="_blank" rel="noopener">WhatsApp</a></div>
+   </div>
+  </div>
+ </section>
+</main>
+<div id="detail" hidden></div>
+
+<footer>
+ <div class="wrap">
+  <div class="ft">
+   <div><img alt="T-SHOW" src="assets/logo.webp" width="166" height="28" loading="lazy"><p>Аренда профессионального звука, света, сцены и спецэффектов в Саранске. Доставка, монтаж, техник на площадке.</p></div>
+   <div><h4>Разделы</h4><a href="#catalog">Оборудование</a><a href="#packs">Комплекты</a><a href="#services">Услуги</a><a href="#order">Как заказать</a></div>
+   <div><h4>Контакты</h4><a href="tel:+79170042628">8 917 004-26-28</a><a href="https://wa.me/79170042628" target="_blank" rel="noopener">WhatsApp</a><span>Ежедневно 9:00–21:00</span></div>
+  </div>
+ </div>
+ <div class="wrap cp"><span>© 2026 T-SHOW. Аренда звука и света.</span><a href="privacy.html">Политика конфиденциальности</a></div>
+</footer>
+
+<button id="cartBtn" type="button" data-open-cart><svg viewBox="0 0 24 24"><path d="M9 5h6M5 8h14l-1.5 12h-11z"/><path d="M9 12h6M9 16h4"/></svg><span>Смета</span><span class="c" id="cartCount">0</span><span id="cartSum"></span></button>
+<div id="drawer" role="dialog" aria-modal="true" aria-labelledby="dh"><div class="ov" data-close></div><div class="pn">
+ <div class="pn-h"><h2 id="dh">Ваша смета</h2><button class="x" type="button" data-close aria-label="Закрыть">×</button></div>
+ <div class="pn-list" id="cartList"></div>
+ <div class="pn-f"><div class="tot"><span>Ориентир</span><b id="cartTotal">0 ₽</b></div><p id="cartNote">Цена за сутки по базовым тарифам. Доставка, монтаж и техник считаются отдельно.</p><a class="btn fill" href="#contacts" data-close>Оформить заявку</a><button class="clr" type="button" id="cartClear">Очистить смету</button></div>
+</div></div>
+
+<nav class="mbar" aria-label="Быстрые действия">
+ <a href="#catalog"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>Каталог</a>
+ <button type="button" data-open-cart><svg viewBox="0 0 24 24"><path d="M9 5h6M5 8h14l-1.5 12h-11z"/><path d="M9 12h6M9 16h4"/></svg>Смета<i id="mCount"></i></button>
+ <a class="call" href="tel:+79170042628"><svg viewBox="0 0 24 24"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>Позвонить</a>
+</nav>
+
+<script>
+var WA="79170042628"; /* номер WhatsApp без плюса */
+var TEL="+79170042628";
+var icons={
+ "Звук":'<svg viewBox="0 0 120 120"><path d="M28 8h64"/><path d="M34 14h52l4 22H30z"/><path d="M31 40h58l4 22H27z" transform="rotate(2 60 51)"/><path d="M30 66h60l4 22H26z" transform="rotate(4 60 77)"/><path d="M30 92h60l5 20H25z" transform="rotate(7 60 102)"/><circle cx="47" cy="25" r="6"/><circle cx="73" cy="25" r="6"/><circle cx="46" cy="51" r="6"/><circle cx="74" cy="51" r="6"/><circle cx="45" cy="77" r="6"/><circle cx="75" cy="77" r="6"/><circle cx="44" cy="102" r="6"/><circle cx="76" cy="102" r="6"/></svg>',
+ "Свет":'<svg viewBox="0 0 120 120"><path d="M20 92l40-20 40 20-40 20z"/><path d="M20 92v8l40 20v-8M100 92v8l-40 20"/><path d="M46 70V46q0-12 14-12t14 12v24"/><circle cx="60" cy="30" r="14"/><circle cx="60" cy="30" r="7"/><path d="M52 18L38 4M68 18L82 4" opacity=".6"/></svg>',
+ "Сцена":'<svg viewBox="0 0 120 120"><path d="M12 24h96M12 48h96M12 24v24M108 24v24"/><path d="M12 24l12 24 12-24 12 24 12-24 12 24 12-24 12 24 12-24" /><path d="M12 48v46M108 48v46"/><path d="M6 94l54 20 54-20-54-20z"/></svg>',
+ "Видео":'<svg viewBox="0 0 120 120"><rect x="12" y="18" width="96" height="58" rx="2"/><path d="M36 18v58M60 18v58M84 18v58M12 37h96M12 56h96" opacity=".45"/><path d="M38 76l-8 30M82 76l8 30M20 106h80"/></svg>',
+ "Спецэффекты":'<svg viewBox="0 0 120 120"><rect x="14" y="74" width="56" height="26" rx="3"/><path d="M70 82h10M22 74v-6h14v6"/><circle cx="86" cy="62" r="9"/><circle cx="98" cy="44" r="12"/><circle cx="82" cy="34" r="8"/><circle cx="102" cy="20" r="6"/><path d="M22 110h40" opacity=".5"/></svg>',
+ "Энергия":'<svg viewBox="0 0 120 120"><rect x="14" y="48" width="92" height="56" rx="4"/><path d="M64 56L48 80h12l-4 18 22-28H66l4-14z"/><circle cx="30" cy="34" r="10"/><circle cx="30" cy="34" r="5"/><path d="M40 34h30l10 14"/></svg>'
+};
+/* [раздел, подраздел, название, описание, цена, [[характеристика, значение], ...]] — цены и характеристики примерные */
+var S=function(b){return '<svg viewBox="0 0 120 120">'+b+'</svg>'};
+function mh(spot){var d="";if(spot){d='<circle cx="60" cy="30" r="13"/><circle cx="60" cy="30" r="7"/><path class="ac" d="M52 14L38 2M68 14L82 2"/>'}else{d='<circle cx="60" cy="30" r="16"/><circle cx="60" cy="30" r="10"/>';[[66.5,30],[63.2,35.6],[56.8,35.6],[53.5,30],[56.8,24.4],[63.2,24.4]].forEach(function(q){d+='<circle class="ac" cx="'+q[0]+'" cy="'+q[1]+'" r="1.6"/>'})}
+ return S('<path d="M26 98l34-14 34 14-34 14z"/><path d="M26 98v8l34 14v-8z"/><path d="M94 98v8l-34 14v-8z"/><path d="M32 92V46h12v46z"/><path d="M76 92V46h12v46z"/><rect x="38" y="12" width="44" height="50" rx="15"/>'+d)}
+var mixB='<rect x="8" y="30" width="104" height="66" rx="4"/>',strB='<rect x="8" y="34" width="104" height="52" rx="4"/>',i;
+for(i=0;i<6;i++){mixB+='<circle cx="'+(24+i*15)+'" cy="42" r="3"/><path d="M'+(24+i*15)+' 56V88"/><rect class="ac" x="'+(20+i*15)+'" y="'+(60+(i*9)%20)+'" width="8" height="5"/>'}
+for(i=0;i<5;i++){strB+='<rect x="'+(16+i*19)+'" y="42" width="15" height="15"/><rect class="'+(i%2?'ac':'')+'" x="'+(16+i*19)+'" y="62" width="15" height="15"/>'}
+var pads='<rect x="8" y="30" width="104" height="66" rx="4"/>';
+for(i=0;i<4;i++){pads+='<rect class="'+(i==1?'ac':'')+'" x="'+(16+i*16)+'" y="38" width="12" height="12"/><rect class="'+(i==2?'ac':'')+'" x="'+(16+i*16)+'" y="54" width="12" height="12"/>'}
+pads+='<path d="M88 40V88M102 40V88"/><rect class="ac" x="84" y="56" width="8" height="5"/><rect class="ac" x="98" y="70" width="8" height="5"/><circle cx="36" cy="82" r="9"/><circle class="ac" cx="36" cy="82" r="2"/>';
+var sock='<rect x="16" y="30" width="88" height="60" rx="4"/>';
+[[38,50],[60,50],[82,50],[38,72],[60,72],[82,72]].forEach(function(p,k){sock+='<circle cx="'+p[0]+'" cy="'+p[1]+'" r="7"/><circle class="'+(k==1?'ac':'')+'" cx="'+p[0]+'" cy="'+p[1]+'" r="2"/>'});
+sock+='<path d="M16 60H6q-4 0-4 8v10M104 60h10"/>';
+var arts={
+ 'Активная акустика 15"':S('<rect x="32" y="10" width="56" height="100" rx="5"/><rect x="43" y="20" width="34" height="16" rx="3"/><path class="ac" d="M47 28h26"/><circle cx="60" cy="74" r="24"/><circle cx="60" cy="74" r="13"/><circle class="ac" cx="60" cy="74" r="4"/><path d="M32 40h-6v16h6M88 40h6v16h-6"/>'),
+ 'Сабвуфер 18"':S('<rect x="14" y="26" width="92" height="78" rx="5"/><circle cx="60" cy="65" r="30"/><circle cx="60" cy="65" r="18"/><circle class="ac" cx="60" cy="65" r="6"/><path d="M8 56v18M112 56v18M24 104v6M96 104v6"/>'),
+ 'Микшерный пульт 16 каналов':S(mixB),
+ 'Радиомикрофон ручной':S('<g transform="rotate(32 60 62)"><circle cx="60" cy="22" r="14"/><path d="M48 18h24M47 24h26M50 30h20" opacity=".6"/><path d="M52 34l4 72q4 8 8 0l4-72"/><path class="ac" d="M54 56h12"/></g>'),
+ 'Радиосистема с гарнитурой':S('<path d="M28 62A30 30 0 0 1 88 62"/><ellipse cx="28" cy="68" rx="5" ry="9"/><path d="M28 77q4 20 36 18"/><circle class="ac" cx="67" cy="95" r="3.5"/><rect x="84" y="72" width="26" height="36" rx="3"/><rect class="ac" x="89" y="78" width="16" height="9" rx="1"/><path d="M104 72V50M88 62q14 2 14 10"/>'),
+ 'DJ-комплект':S('<rect x="6" y="32" width="108" height="64" rx="4"/><circle cx="32" cy="66" r="21"/><circle cx="32" cy="66" r="6"/><circle class="ac" cx="32" cy="66" r="14" stroke-dasharray="3 4"/><circle cx="88" cy="66" r="21"/><circle cx="88" cy="66" r="6"/><circle class="ac" cx="88" cy="66" r="14" stroke-dasharray="3 4"/><path d="M54 44v44M66 44v44"/><rect class="ac" x="51" y="56" width="6" height="8"/><rect class="ac" x="63" y="68" width="6" height="8"/>'),
+ 'LED PAR, комплект 8 шт.':S('<circle cx="60" cy="52" r="32"/><circle cx="60" cy="52" r="22"/><circle class="ac" cx="60" cy="52" r="8"/><circle cx="60" cy="52" r="15" stroke-dasharray="2 5"/><path d="M22 60v28q0 12 12 12h52q12 0 12-12V60M60 84v16M52 106h16"/>'),
+ 'Вращающаяся голова Spot':mh(true),'Вращающаяся голова Wash':mh(false),
+ 'Стробоскоп':S(strB+'<path d="M44 86v16M76 86v16M30 106h60"/>'),
+ 'Генератор дыма':S('<rect x="10" y="66" width="62" height="32" rx="3"/><path d="M72 76h12v14H72M20 66v-7h16v7M20 80h40M20 88h40"/><circle class="ac" cx="92" cy="66" r="7"/><circle cx="102" cy="48" r="11"/><circle cx="84" cy="38" r="8"/><circle cx="104" cy="24" r="6"/>'),
+ 'Пульт управления светом':S(pads),
+ 'Сценический подиум 2×1 м':S('<path d="M8 56l52-22 52 22-52 22z"/><path d="M8 56v18l52 22V78M112 56v18L60 96"/><path class="ac" d="M34 45l52 22M86 45L34 67"/>'),
+ 'Стойки для света и звука':S('<path d="M60 12v84M24 24h72"/><rect x="14" y="12" width="20" height="20" rx="3"/><circle class="ac" cx="24" cy="22" r="5"/><rect x="86" y="12" width="20" height="20" rx="3"/><circle class="ac" cx="96" cy="22" r="5"/><path d="M60 96L34 112M60 96l26 16M60 96v16"/>'),
+ 'Проектор 5000 лм':S('<rect x="10" y="48" width="92" height="40" rx="6"/><circle cx="76" cy="68" r="14"/><circle class="ac" cx="76" cy="68" r="7"/><path d="M18 58h30M18 66h30M18 74h30M24 88v8M88 88v8"/><path class="ac" d="M90 62L116 38M90 74L116 98"/>'),
+ 'Экран на треноге 3×2 м':S('<rect x="12" y="12" width="96" height="62" rx="2"/><rect class="ac" x="18" y="18" width="84" height="50" rx="1" opacity=".6"/><path d="M60 74v22M60 96l-22 16M60 96l22 16M60 96v16"/>'),
+ 'Тяжёлый дым':S('<rect x="10" y="66" width="62" height="32" rx="3"/><path d="M72 76h12v14H72M20 66v-7h16v7M20 80h40M20 88h40"/><circle class="ac" cx="92" cy="66" r="7"/><circle cx="102" cy="48" r="11"/><circle cx="84" cy="38" r="8"/><circle cx="104" cy="24" r="6"/>'),
+ 'Холодные фонтаны':S('<rect x="50" y="82" width="20" height="26" rx="3"/><path class="ac" d="M60 78V22M56 78L38 34M64 78L82 34M52 80L24 54M68 80L96 54"/><circle cx="60" cy="18" r="2"/><circle cx="36" cy="30" r="2"/><circle cx="84" cy="30" r="2"/><circle cx="22" cy="50" r="2"/><circle cx="98" cy="50" r="2"/>'),
+ 'Хлопушка с конфетти':S('<g transform="rotate(-18 60 90)"><path d="M48 106l4-44h16l4 44z"/><path d="M50 74h20"/></g><path class="ac" d="M70 40l6-4M86 28l4 6M58 26l-2-8M96 50l6 2M80 52l5 5M44 38l-6-3M104 34l-1-7M66 14l5 1"/>'),
+ 'Генератор 10 кВт':S('<path d="M26 44V30h68v14"/><rect x="12" y="44" width="96" height="56" rx="4"/><rect x="20" y="52" width="40" height="40" rx="2"/><path class="ac" d="M42 56l-8 18h8l-4 14 14-20h-9l5-12z"/><circle cx="84" cy="64" r="6"/><circle cx="84" cy="84" r="6"/><path d="M20 100v8M100 100v8"/>'),
+ 'Силовой распределитель':S(sock)
+};
+var photos={"Сабвуфер 18\"": "assets/sub-18.webp", "Активная акустика 15\"": "assets/active-15.webp", "DJ-комплект": "assets/dj.webp", "Вращающаяся голова Spot": "assets/head-spot.webp", "Вращающаяся голова Wash": "assets/head-wash.webp", "LED PAR, комплект 8 шт.": "assets/led-par.webp", "Ферма с подъёмом": "assets/truss.webp", "Сценический подиум 2×1 м": "assets/stage-deck.webp", "Линейный массив Meyer Sound": "assets/line-array.webp", "@Звук": "assets/line-array.webp", "@Свет": "assets/head-spot.webp", "@Сцена": "assets/truss.webp", "Микшерный пульт 16 каналов": "assets/mixer.webp", "Радиомикрофон ручной": "assets/mic.webp", "Радиосистема с гарнитурой": "assets/headset.webp", "Стробоскоп": "assets/strobe.webp", "Генератор дыма": "assets/smoke.webp", "Тяжёлый дым": "assets/smoke.webp", "Пульт управления светом": "assets/light-desk.webp", "Стойки для света и звука": "assets/stands.webp", "Проектор 5000 лм": "assets/projector.webp", "Экран на треноге 3×2 м": "assets/screen.webp", "Холодные фонтаны": "assets/sparkular.webp", "Хлопушка с конфетти": "assets/confetti.webp", "Генератор 10 кВт": "assets/generator.webp"};
+var items=[
+ ["Звук","Акустические системы","Активная акустика 15\"","Для залов до 150 человек и выступлений.","от 2 500 ₽ / сутки",[["Мощность","1000 Вт"],["Макс. уровень","128 дБ"],["Вес","17 кг"]]],
+ ["Звук","Акустические системы","Сабвуфер 18\"","Глубокий бас для танцев и концертов.","от 3 000 ₽ / сутки",[["Мощность","1500 Вт"],["Динамик","18\""],["Вес","38 кг"]]],
+ ["Звук","Микшерные пульты","Микшерный пульт 16 каналов","Цифровой, со встроенными эффектами.","от 2 000 ₽ / сутки",[["Входы","16"],["Выходы","6 aux"],["Эффекты","да"]]],
+ ["Звук","Микрофоны и радиосистемы","Радиомикрофон ручной","Для ведущих и выступающих.","от 800 ₽ / сутки",[["Диапазон","UHF"],["Дальность","до 100 м"],["Работа от батарей","8 часов"]]],
+ ["Звук","Микрофоны и радиосистемы","Радиосистема с гарнитурой","Свободные руки для спикера.","от 1 000 ₽ / сутки",[["Диапазон","UHF"],["Дальность","до 100 м"],["Тип","головная гарнитура"]]],
+ ["Звук","DJ-оборудование","DJ-комплект","Контроллер, мониторы и стойка.","от 4 500 ₽ / сутки",[["Каналы","4"],["Мониторы","2 шт."],["Стойка","входит"]]],
+ ["Свет","Световые приборы","LED PAR, комплект 8 шт.","Заливающий цветной свет.","от 2 400 ₽ / сутки",[["Количество","8 шт."],["Цвета","RGBW"],["Управление","DMX"]]],
+ ["Свет","Световые приборы","Вращающаяся голова Spot","Лучи и рисунки для шоу.","от 1 800 ₽ / сутки",[["Источник","LED 150 Вт"],["Гобо","есть"],["Управление","DMX"]]],
+ ["Свет","Световые приборы","Вращающаяся голова Wash","Мягкая заливка и динамика.","от 1 500 ₽ / сутки",[["Источник","LED 19×15 Вт"],["Зум","есть"],["Управление","DMX"]]],
+ ["Свет","Эффекты и управление","Стробоскоп","Яркие вспышки для танцпола.","от 600 ₽ / сутки",[["Мощность","1500 Вт"],["Скорость вспышек","регулируется"],["Управление","DMX"]]],
+ ["Свет","Эффекты и управление","Генератор дыма","Дым для света и шоу.","от 1 000 ₽ / сутки",[["Мощность","1500 Вт"],["Выход","регулируется"],["Жидкость","входит"]]],
+ ["Свет","Эффекты и управление","Пульт управления светом","Сценарии и программы света.","от 1 500 ₽ / сутки",[["Каналы DMX","512"],["Сцены","есть"],["Подключение","DMX"]]],
+ ["Сцена","Конструкции","Сценический подиум 2×1 м","Модульный, регулируемая высота.","от 700 ₽ / сутки",[["Размер","2×1 м"],["Высота","40–100 см"],["Нагрузка","до 500 кг/м²"]]],
+ ["Сцена","Конструкции","Стойки для света и звука","Надёжные, с утяжелителями.","от 500 ₽ / сутки",[["Высота","до 3,5 м"],["Нагрузка","до 40 кг"],["Утяжелители","входят"]]],
+ ["Сцена","Конструкции","Ферма с подъёмом","Конструкция под подвес света.","расчёт по запросу",[["Размер","под площадку"],["Монтаж","наши техники"],["Расчёт","по запросу"]]],
+ ["Видео","Проекция","Проектор 5000 лм","Для залов и презентаций.","от 3 500 ₽ / сутки",[["Яркость","5000 лм"],["Разрешение","Full HD"],["Подключение","HDMI"]]],
+ ["Видео","Проекция","Экран на треноге 3×2 м","Быстро собирается.","от 1 200 ₽ / сутки",[["Размер","3×2 м"],["Тип","на треноге"],["Сборка","10 минут"]]],
+ ["Видео","LED-экраны","LED-экран","Любой размер под площадку.","расчёт по запросу",[["Размер","под площадку"],["Шаг пикселя","по задаче"],["Монтаж","наши техники"]]]
+ ,["Спецэффекты","Дым и пламя","Тяжёлый дым","Стелющийся дым для первого танца и шоу.","от 1 800 ₽ / сутки",[["Эффект","стелющийся дым"],["Выход","регулируется"],["Жидкость","входит"]]],
+ ["Спецэффекты","Дым и пламя","Холодные фонтаны","Безопасные искры для свадеб и концертов.","от 3 000 ₽ / сутки",[["Высота","до 4 м"],["Комплект","2 фонтана"],["Управление","пульт"]]],
+ ["Спецэффекты","Конфетти","Хлопушка с конфетти","Выброс конфетти или серпантина.","от 1 500 ₽ / сутки",[["Высота","до 8 м"],["Заряд","на выбор"],["Управление","пульт"]]],
+ ["Энергия","Электропитание","Генератор 10 кВт","Тихий, для выездных площадок.","от 6 000 ₽ / сутки",[["Мощность","10 кВт"],["Топливо","бензин"],["Шум","до 68 дБ"]]],
+ ["Энергия","Электропитание","Силовой распределитель","Безопасная раздача питания на площадке.","от 1 200 ₽ / сутки",[["Выходы","6 × 220 В"],["Защита","УЗО"],["Вход","32 А"]]]
+ ,["Звук","Акустические системы","Линейный массив Meyer Sound","Подвесной массив для больших залов и площадок.","расчёт по запросу",[["Конфигурация","подвесной массив"],["Мощность","по расчёту"],["Монтаж","наши техники"]]]
+];
+var cats=Object.keys(icons),cur="Звук",query="";
+var side=document.getElementById("side"),list=document.getElementById("list"),detail=document.getElementById("detail");
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;")}
+function slug(s){return "s"+s.length+s.charCodeAt(0)+s.charCodeAt(s.length-1)}
+function subsOf(c){var r=[];items.forEach(function(i){if(i[0]===c&&r.indexOf(i[1])<0)r.push(i[1])});return r}
+function pic(it,eager){var p=photos[it[2]];return p?'<img class="ph" alt="'+esc(it[2])+'" src="'+p+'"'+(eager?'':' loading="lazy"')+'>':(arts[it[2]]||icons[it[0]])}
+function priceNum(it){var m=String(it[4]).replace(/\s/g,"").match(/(\d+)/);return m?+m[1]:0}
+function rub(n){return n.toLocaleString("ru-RU")+" ₽"}
+function idxOf(name){for(var k=0;k<items.length;k++)if(items[k][2]===name)return k;return -1}
+
+/* ---------- Смета ---------- */
+var cart={};
+try{cart=JSON.parse(localStorage.getItem("tshow-cart")||"{}")||{}}catch(e){cart={}}
+Object.keys(cart).forEach(function(k){if(idxOf(k)<0)delete cart[k]});
+function saveCart(){try{localStorage.setItem("tshow-cart",JSON.stringify(cart))}catch(e){}}
+function cartCount(){return Object.keys(cart).reduce(function(a,k){return a+cart[k]},0)}
+function cartTotal(){var t=0,req=false;Object.keys(cart).forEach(function(k){var p=priceNum(items[idxOf(k)]);if(p)t+=p*cart[k];else req=true});return {t:t,req:req}}
+function addToCart(name,q){cart[name]=(cart[name]||0)+(q||1);saveCart();renderCart()}
+function setQty(name,q){if(q<=0)delete cart[name];else cart[name]=q;saveCart();renderCart()}
+function renderCart(){
+ var n=cartCount(),tt=cartTotal();
+ ["hdrCount","mCount"].forEach(function(id){document.getElementById(id).textContent=n||""});
+ document.getElementById("cartCount").textContent=n;
+ document.getElementById("cartSum").textContent=tt.t?"· от "+rub(tt.t):"";
+ document.getElementById("cartBtn").classList.toggle("show",n>0);
+ var keys=Object.keys(cart);
+ document.getElementById("cartList").innerHTML=keys.length?keys.map(function(k){var it=items[idxOf(k)],p=priceNum(it);
+  return '<div class="ci"><div class="im">'+pic(it)+'</div><div><h4>'+esc(k)+'</h4><small>'+(p?rub(p)+' / сутки':'по запросу')+'</small></div><div class="qty"><button type="button" data-q="-1" data-n="'+esc(k)+'" aria-label="Меньше">−</button><span>'+cart[k]+'</span><button type="button" data-q="1" data-n="'+esc(k)+'" aria-label="Больше">+</button></div></div>'}).join("")
+  :'<div class="pn-empty">Смета пока пустая.<br>Добавляйте позиции из каталога или готовый комплект.</div>';
+ document.getElementById("cartTotal").textContent=(tt.t?"от "+rub(tt.t):"—")+(tt.req?" +":"");
+ document.getElementById("cartNote").textContent="Цена за сутки по базовым тарифам."+(tt.req?" Позиции «по запросу» посчитаем отдельно.":"")+" Доставка, монтаж и техник — в смете.";
+ var pk=document.getElementById("picked");pk.classList.toggle("show",n>0);
+ document.getElementById("pickedList").innerHTML=keys.map(function(k){return '<li>'+esc(k)+' × '+cart[k]+'</li>'}).join("")+(tt.t?'<li style="color:var(--accent);margin-top:4px">Ориентир: от '+rub(tt.t)+' / сутки</li>':'');
+ document.querySelectorAll(".add").forEach(function(b){var on=!!cart[b.dataset.n];b.classList.toggle("on",on);b.textContent=on?"✓ В смете":"+ В смету"});
+}
+var drawer=document.getElementById("drawer");
+function openCart(){drawer.classList.add("open");document.body.style.overflow="hidden"}
+function closeCart(){drawer.classList.remove("open");if(detail.hidden)document.body.style.overflow=""}
+document.addEventListener("click",function(e){
+ var o=e.target.closest("[data-open-cart]");if(o){e.preventDefault();openCart();return}
+ var c=e.target.closest("[data-close]");if(c){closeCart();return}
+ var q=e.target.closest("[data-q]");if(q){setQty(q.dataset.n,(cart[q.dataset.n]||0)+(+q.dataset.q));return}
+ var a=e.target.closest(".add");if(a){e.preventDefault();if(cart[a.dataset.n])setQty(a.dataset.n,0);else addToCart(a.dataset.n);return}
+ var pk=e.target.closest("[data-pack]");if(pk){e.preventDefault();packs[+pk.dataset.pack].items.forEach(function(x){addToCart(x[0],x[1])});openCart()}
+});
+document.getElementById("cartClear").onclick=function(){cart={};saveCart();renderCart()};
+document.addEventListener("keydown",function(e){if(e.key!=="Escape")return;if(drawer.classList.contains("open"))closeCart();else if(!detail.hidden)location.hash="catalog"});
+
+/* ---------- Каталог ---------- */
+function card(i){var it=items[i];
+ return '<div class="card"><a class="cl" href="#item-'+i+'"><div class="thumb"><em>'+it[0]+'</em>'+pic(it)+'</div><div class="body"><h3>'+esc(it[2])+'</h3><p>'+esc(it[3])+'</p><div class="avail">В наличии</div><div class="price">'+esc(it[4])+'</div><span class="more">Подробнее →</span></div></a><button type="button" class="add" data-n="'+esc(it[2])+'">+ В смету</button></div>'}
+function draw(){
+ side.innerHTML='<div class="k2">// РАЗДЕЛЫ //</div>'+cats.map(function(c){
+  var n=items.filter(function(i){return i[0]===c}).length;
+  var on=c===cur&&!query;
+  var s='<button class="sbtn" aria-pressed="'+on+'" data-c="'+c+'">'+c+'<b>'+n+'</b></button>';
+  if(on)s+='<div class="subs">'+subsOf(c).map(function(x){return '<a href="#" data-g="'+slug(x)+'">'+esc(x)+'</a>'}).join("")+'</div>';
+  return s}).join("");
+ if(query){
+  var w=query.toLowerCase(),idx=[];
+  items.forEach(function(it,i){if((it[0]+" "+it[1]+" "+it[2]+" "+it[3]).toLowerCase().indexOf(w)>=0)idx.push(i)});
+  list.innerHTML=idx.length?'<div class="grp"><div class="grp-h"><h3>Найдено</h3><span>'+idx.length+' поз.</span></div><div class="grid">'+idx.map(card).join("")+'</div></div>'
+   :'<div class="empty">Ничего не нашли по запросу «'+esc(query)+'». Позвоните — подберём аналог или привезём под заказ.</div>';
+ }else{
+  list.innerHTML=subsOf(cur).map(function(sub){
+   var idx=[];items.forEach(function(it,i){if(it[0]===cur&&it[1]===sub)idx.push(i)});
+   return '<div class="grp" id="'+slug(sub)+'"><div class="grp-h"><h3>'+esc(sub)+'</h3><span>'+idx.length+' поз.</span></div><div class="grid">'+idx.map(card).join("")+'</div></div>'}).join("");
+ }
+ renderCart();
+}
+function goCat(c){cur=c;query="";document.getElementById("q").value="";draw();document.getElementById("catalog").scrollIntoView({behavior:"smooth"})}
+side.addEventListener("click",function(e){
+ var b=e.target.closest(".sbtn"),g=e.target.closest("[data-g]");
+ if(b){cur=b.dataset.c;query="";document.getElementById("q").value="";draw()}
+ if(g){e.preventDefault();var t=document.getElementById(g.dataset.g);if(t)t.scrollIntoView({behavior:"smooth"})}
+});
+document.getElementById("q").addEventListener("input",function(){query=this.value.trim();draw()});
+
+/* ---------- Карточка товара ---------- */
+function showDetail(i){
+ var it=items[i];if(!it){location.hash="catalog";return}
+ var sim=[];items.forEach(function(x,k){if(x[0]===it[0]&&k!==i&&sim.length<3)sim.push(k)});
+ detail.innerHTML='<div class="d-bar"><div class="wrap"><a class="back" href="#catalog">← Каталог</a><a href="#top" class="logo"><img alt="T-SHOW" src="assets/logo.webp"></a></div></div>'+
+ '<div class="wrap d-main"><div class="crumb"><a href="#top">Главная</a> / <a href="#catalog">Оборудование</a> / <a href="#catalog" data-cat="'+it[0]+'">'+it[0]+'</a> / '+esc(it[2])+'</div>'+
+ '<div class="d-grid"><div class="thumb d-thumb"><em>'+it[0]+'</em>'+pic(it,true)+'</div><div><span class="tag">// '+esc(it[1]).toUpperCase()+' //</span><h1>'+esc(it[2])+'</h1><p>'+esc(it[3])+' В аренду входят кабели, крепёж и проверка перед выдачей. Доставка и монтаж по запросу.</p>'+
+ '<div class="avail">В наличии</div><div class="d-price">'+esc(it[4])+'</div><div class="cta" style="display:flex;gap:12px;flex-wrap:wrap"><button class="btn fill" id="dreq" type="button">+ Добавить в смету</button><a class="btn" href="tel:'+TEL+'">Позвонить</a></div></div></div>'+
+ '<h2>Характеристики</h2><table>'+it[5].map(function(r){return '<tr><td>'+esc(r[0])+'</td><td>'+esc(r[1])+'</td></tr>'}).join("")+'</table>'+
+ '<h2>Похожие позиции</h2><div class="grid">'+sim.map(card).join("")+'</div></div>';
+ detail.hidden=false;detail.scrollTop=0;document.body.style.overflow="hidden";
+ var dr=document.getElementById("dreq");
+ function upd(){dr.textContent=cart[it[2]]?"✓ В смете — открыть":"+ Добавить в смету"}
+ dr.onclick=function(){if(cart[it[2]])openCart();else{addToCart(it[2]);upd()}};upd();
+ detail.querySelectorAll("[data-cat]").forEach(function(a){a.onclick=function(){cur=a.dataset.cat;query="";draw()}});
+ renderCart();
+}
+function route(){
+ var m=location.hash.match(/^#item-(\d+)$/);
+ if(m){showDetail(+m[1])}else{detail.hidden=true;if(!drawer.classList.contains("open"))document.body.style.overflow=""}
+}
+window.addEventListener("hashchange",route);
+
+/* ---------- Готовые комплекты ---------- */
+var packs=[
+ {t:"Свадьба",who:"банкет до 80 гостей",img:"Активная акустика 15\"",items:[["Активная акустика 15\"",2],["Сабвуфер 18\"",1],["Микшерный пульт 16 каналов",1],["Радиомикрофон ручной",2],["LED PAR, комплект 8 шт.",1],["Тяжёлый дым",1]]},
+ {t:"Корпоратив",who:"зал до 150 гостей",img:"DJ-комплект",hot:true,items:[["Активная акустика 15\"",2],["Сабвуфер 18\"",2],["DJ-комплект",1],["Радиомикрофон ручной",2],["LED PAR, комплект 8 шт.",1],["Вращающаяся голова Spot",2]]},
+ {t:"Конференция",who:"доклады и презентации",img:"Проектор 5000 лм",items:[["Активная акустика 15\"",2],["Микшерный пульт 16 каналов",1],["Радиомикрофон ручной",2],["Радиосистема с гарнитурой",1],["Проектор 5000 лм",1],["Экран на треноге 3×2 м",1]]},
+ {t:"Концерт / вечеринка",who:"сцена и танцпол",img:"Вращающаяся голова Spot",items:[["Активная акустика 15\"",2],["Сабвуфер 18\"",2],["Микшерный пульт 16 каналов",1],["Вращающаяся голова Spot",2],["Вращающаяся голова Wash",2],["Стробоскоп",1],["Генератор дыма",1],["Пульт управления светом",1]]}
+];
+document.getElementById("packList").innerHTML=packs.map(function(p,k){
+ var sum=p.items.reduce(function(a,x){return a+priceNum(items[idxOf(x[0])])*x[1]},0);
+ return '<div class="pack'+(p.hot?' hot':'')+'"><div class="pack-top"><em>Комплект</em><img alt="" loading="lazy" src="'+photos[p.img]+'"></div><div class="pack-b"><h3>'+p.t+'</h3><div class="who2">'+p.who+'</div><ul>'+
+  p.items.map(function(x){return '<li><span>'+esc(x[0])+'</span><b>× '+x[1]+'</b></li>'}).join("")+'</ul><div class="pp">от '+rub(sum)+'<small>за сутки, без доставки и монтажа</small></div><button type="button" class="btn fill" data-pack="'+k+'">Добавить в смету</button></div></div>'}).join("");
+
+draw();route();
+
+/* Парк оборудования, эквалайзер, появление при прокрутке */
+var parkL=["Звук","Свет","Видео"],parkR=["Сцена","Спецэффекты","Энергия"],
+ pname={"Звук":"Звуковое оборудование","Свет":"Световое оборудование","Видео":"Мультимедиа оборудование","Сцена":"Сценическое оборудование","Спецэффекты":"Сценические спецэффекты","Энергия":"Энерго-обеспечение"};
+var art=document.getElementById("art");
+function setArt(c){var q=photos["@"+c];art.innerHTML=q?'<img alt="" src="'+q+'">':icons[c];document.querySelectorAll(".pi").forEach(function(b){b.classList.toggle("on",b.dataset.c===c)})}
+function pbtn(c,n){return '<button class="pi" data-c="'+c+'"><small>0'+n+'</small><span>'+pname[c]+'</span></button>'}
+document.getElementById("pl").innerHTML=parkL.map(function(c,k){return pbtn(c,k+1)}).join("");
+document.getElementById("pr").innerHTML=parkR.map(function(c,k){return pbtn(c,k+4)}).join("");
+document.getElementById("park").addEventListener("mouseover",function(e){var b=e.target.closest(".pi");if(b)setArt(b.dataset.c)});
+document.getElementById("park").addEventListener("click",function(e){
+ var b=e.target.closest(".pi");if(!b)return;
+ if(window.matchMedia("(hover:none)").matches&&!b.classList.contains("on")){setArt(b.dataset.c);return}
+ goCat(b.dataset.c);
+});
+setArt("Звук");
+var eq=document.getElementById("eq"),bars="";
+for(var q=0;q<48;q++)bars+='<i style="animation-delay:-'+(Math.random()*1.4).toFixed(2)+'s;animation-duration:'+(0.9+Math.random()*1.1).toFixed(2)+'s"></i>';
+eq.innerHTML=bars;
+var rvs=document.querySelectorAll(".rv,.svc,.step,.pack,.why>div");
+if("IntersectionObserver" in window){
+ var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target)}})},{threshold:.15});
+ rvs.forEach(function(n){n.classList.add("rv");io.observe(n)});
+}else{rvs.forEach(function(n){n.classList.add("in")})}
+
+/* Заявка */
+var telI=document.getElementById("tel");
+telI.addEventListener("input",function(){
+ var d=this.value.replace(/\D/g,"");if(!d){this.value="";return}
+ if(d[0]==="8")d="7"+d.slice(1);if(d[0]!=="7")d="7"+d;d=d.slice(0,11);
+ var r="+7";if(d.length>1)r+=" "+d.slice(1,4);if(d.length>4)r+=" "+d.slice(4,7);if(d.length>7)r+="-"+d.slice(7,9);if(d.length>9)r+="-"+d.slice(9,11);
+ this.value=r;
+});
+document.getElementById("form").addEventListener("submit",function(e){
+ e.preventDefault();
+ var n=document.getElementById("name").value.trim(),t=telI.value.trim(),
+     d=document.getElementById("date").value,msg=document.getElementById("msg").value.trim(),ok=document.getElementById("ok").checked,note=document.getElementById("note");
+ if(!n||t.replace(/\D/g,"").length<11){note.textContent="Укажите имя и телефон полностью.";return}
+ if(!ok){note.textContent="Подтвердите согласие на обработку данных.";return}
+ var ds=d?d.split("-").reverse().join("."):"";
+ var lines=["Здравствуйте! Заявка на аренду с сайта T-SHOW.","Имя: "+n,"Телефон: "+t];
+ if(ds)lines.push("Дата: "+ds);
+ if(msg)lines.push("Комментарий: "+msg);
+ var keys=Object.keys(cart);
+ if(keys.length){var tt=cartTotal();lines.push("","Смета:");keys.forEach(function(k){lines.push("— "+k+" × "+cart[k])});if(tt.t)lines.push("Ориентир: от "+rub(tt.t)+" / сутки"+(tt.req?" + позиции по запросу":""))}
+ note.textContent="Открываем WhatsApp с готовой заявкой — останется нажать «Отправить».";
+ window.open("https://wa.me/"+WA+"?text="+encodeURIComponent(lines.join("\n")),"_blank");
+});
+
+(function(){var im=document.querySelector(".logo img");if(im)document.documentElement.style.setProperty("--wm","url("+im.src+")")})();
+(function(){var im=document.querySelector(".big-wm img");if(im)document.documentElement.style.setProperty("--wm2","url("+im.src+")")})();
+
+(function(){
+ var e=document.getElementById("eqp"),h="",n=17,k,hh;
+ for(k=0;k<n;k++){hh=22+Math.round(58*Math.sin(Math.PI*(k+.5)/n));h+='<i style="height:'+hh+'px;animation-delay:-'+(Math.random()*1.5).toFixed(2)+'s;animation-duration:'+(1+Math.random()*.9).toFixed(2)+'s"></i>'}
+ e.innerHTML=h;
+ var T=[["Звук","Звуковое оборудование"],["Свет","Световое оборудование"],["Сцена","Сценические конструкции"],["Видео","LED-экраны и видео"],["Спецэффекты","Спецэффекты"],["Энергия","Энерго-обеспечение"]];
+ var t=document.getElementById("tiles");
+ t.innerHTML=T.map(function(x){return '<button class="tile" type="button" data-c="'+x[0]+'">'+icons[x[0]]+'<span>'+x[1]+'</span></button>'}).join("");
+ t.addEventListener("click",function(ev){var b=ev.target.closest(".tile");if(b)goCat(b.dataset.c)});
+ document.getElementById("facts").innerHTML=
+  '<div><b>'+items.length+'<em>+</em></b><span>позиций в каталоге</span></div>'+
+  '<div><b>'+cats.length+'</b><span>направлений техники</span></div>'+
+  '<div><b>9<em>–</em>21</b><span>на связи ежедневно</span></div>'+
+  '<div><b>1 <em>час</em></b><span>на расчёт сметы</span></div>';
+})();
+</script>
+</body>
+</html>
