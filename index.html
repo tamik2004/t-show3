@@ -357,6 +357,11 @@ textarea{width:100%;background:transparent;border:1px solid #555;padding:14px;mi
 input:focus,textarea:focus{border-color:var(--accent);outline:0}
 .alt-ct{margin-top:14px;font-size:14px;color:var(--muted)}.alt-ct a{color:var(--text);border-bottom:1px solid #555}
 .agree a{color:var(--text);border-bottom:1px solid #555}
+.sent{border:1px solid var(--accent);background:rgba(232,112,42,.08);padding:18px 20px;margin-top:14px}
+.sent b{color:var(--accent);font-size:18px;display:block;margin-bottom:6px}
+.sent p{color:#d0d0d0;font-size:14px}
+.note a{color:var(--text);border-bottom:1px solid var(--accent)}
+#sendBtn[disabled]{opacity:.6;cursor:wait}
 
 /* подвал */
 footer .ft{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:40px;padding-bottom:28px;border-bottom:1px solid var(--line);margin-bottom:22px}
@@ -503,7 +508,7 @@ main{overflow-x:clip}
    <div>
     <span class="tag">// ЗАЯВКА НА РАСЧЁТ //</span>
     <h2>Давайте <span>посчитаем</span></h2>
-    <p class="lead">Оставьте контакты — подготовим точный расчёт сметы и перезвоним.</p>
+    <p class="lead">Оставьте контакты — заявка сразу придёт менеджеру, мы перезвоним и подготовим точный расчёт.</p>
     <form id="form" novalidate>
      <div class="picked" id="picked"><b>Ваша смета</b><ul id="pickedList"></ul><button type="button" data-open-cart>Изменить состав</button></div>
      <label for="name">ИМЯ</label>
@@ -515,9 +520,11 @@ main{overflow-x:clip}
      <label for="msg">ПЛОЩАДКА, ЧИСЛО ГОСТЕЙ, ПОЖЕЛАНИЯ</label>
      <textarea id="msg" placeholder="Например: банкетный зал, 80 гостей, нужен ведущий микрофон и танцпол"></textarea>
      <label class="agree"><input id="ok" type="checkbox"><span>Согласен на обработку персональных данных в соответствии с <a href="privacy.html" target="_blank">политикой конфиденциальности</a></span></label>
-     <button class="btn fill" type="submit">Отправить заявку в WhatsApp</button>
+     <input type="text" name="_honey" id="honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+     <button class="btn fill" type="submit" id="sendBtn">Отправить заявку</button>
      <p class="note" id="note" role="status"></p>
-     <p class="alt-ct">Нет WhatsApp? Позвоните: <a href="tel:+79170042628">8 917 004-26-28</a></p>
+     <div class="sent" id="sent" hidden><b>Заявка отправлена ✓</b><p>Спасибо! Менеджер свяжется с вами в ближайшее время (ежедневно с 9:00 до 21:00).</p></div>
+     <p class="alt-ct">Срочно? Позвоните <a href="tel:+79170042628">8 917 004-26-28</a> или напишите в <a href="https://wa.me/79170042628" target="_blank" rel="noopener">WhatsApp</a></p>
     </form>
    </div>
    <div>
@@ -778,20 +785,43 @@ telI.addEventListener("input",function(){
  var r="+7";if(d.length>1)r+=" "+d.slice(1,4);if(d.length>4)r+=" "+d.slice(4,7);if(d.length>7)r+="-"+d.slice(7,9);if(d.length>9)r+="-"+d.slice(9,11);
  this.value=r;
 });
+var MAIL="kapter2004@gmail.com"; /* адрес, куда приходят заявки */
 document.getElementById("form").addEventListener("submit",function(e){
  e.preventDefault();
  var n=document.getElementById("name").value.trim(),t=telI.value.trim(),
-     d=document.getElementById("date").value,msg=document.getElementById("msg").value.trim(),ok=document.getElementById("ok").checked,note=document.getElementById("note");
+     d=document.getElementById("date").value,msg=document.getElementById("msg").value.trim(),ok=document.getElementById("ok").checked,
+     note=document.getElementById("note"),btn=document.getElementById("sendBtn"),form=this;
+ if(document.getElementById("honey").value)return;
  if(!n||t.replace(/\D/g,"").length<11){note.textContent="Укажите имя и телефон полностью.";return}
  if(!ok){note.textContent="Подтвердите согласие на обработку данных.";return}
  var ds=d?d.split("-").reverse().join("."):"";
+ var keys=Object.keys(cart),tt=cartTotal();
+ var smeta=keys.map(function(k){return k+" × "+cart[k]}).join("\n");
  var lines=["Здравствуйте! Заявка на аренду с сайта T-SHOW.","Имя: "+n,"Телефон: "+t];
- if(ds)lines.push("Дата: "+ds);
- if(msg)lines.push("Комментарий: "+msg);
- var keys=Object.keys(cart);
- if(keys.length){var tt=cartTotal();lines.push("","Смета:");keys.forEach(function(k){lines.push("— "+k+" × "+cart[k])});if(tt.t)lines.push("Ориентир: от "+rub(tt.t)+" / сутки"+(tt.req?" + позиции по запросу":""))}
- note.textContent="Открываем WhatsApp с готовой заявкой — останется нажать «Отправить».";
- window.open("https://wa.me/"+WA+"?text="+encodeURIComponent(lines.join("\n")),"_blank");
+ if(ds)lines.push("Дата: "+ds);if(msg)lines.push("Комментарий: "+msg);
+ if(keys.length){lines.push("","Смета:");keys.forEach(function(k){lines.push("— "+k+" × "+cart[k])});if(tt.t)lines.push("Ориентир: от "+rub(tt.t)+" / сутки"+(tt.req?" + позиции по запросу":""))}
+ var wa="https://wa.me/"+WA+"?text="+encodeURIComponent(lines.join("\n"));
+ var data={_subject:"Заявка с сайта T-SHOW: "+n+", "+t,_template:"table",_captcha:"false",
+  "Имя":n,"Телефон":t,"Дата мероприятия":ds||"не указана","Комментарий":msg||"—",
+  "Смета":smeta||"не собрана","Ориентир по смете":tt.t?("от "+rub(tt.t)+" / сутки"+(tt.req?" + позиции по запросу":"")):"—"};
+ btn.disabled=true;btn.textContent="Отправляем…";note.textContent="";
+ var ctl=window.AbortController?new AbortController():null,timer=setTimeout(function(){if(ctl)ctl.abort()},15000);
+ fetch("https://formsubmit.co/ajax/"+MAIL,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(data),signal:ctl?ctl.signal:undefined})
+  .then(function(r){return r.json().then(function(j){if(!r.ok||String(j.success)!=="true")throw new Error(j.message||r.status);return j})})
+  .then(function(){
+   clearTimeout(timer);
+   document.getElementById("sent").hidden=false;
+   ["name","tel","date","msg"].forEach(function(id){document.getElementById(id).value=""});
+   document.getElementById("ok").checked=false;
+   cart={};saveCart();renderCart();
+   btn.textContent="Отправлено ✓";
+   setTimeout(function(){btn.disabled=false;btn.textContent="Отправить заявку"},4000);
+  })
+  .catch(function(){
+   clearTimeout(timer);
+   btn.disabled=false;btn.textContent="Отправить заявку";
+   note.innerHTML='Не получилось отправить заявку. <a href="'+wa+'" target="_blank" rel="noopener">Отправьте её в WhatsApp</a> — текст уже готов — или позвоните 8 917 004-26-28.';
+  });
 });
 
 (function(){var im=document.querySelector(".logo img");if(im)document.documentElement.style.setProperty("--wm","url("+im.src+")")})();
