@@ -402,6 +402,29 @@ footer>.wrap:first-child{display:block}
 @media(max-width:480px){.bar .logo img{height:24px}.tagl{letter-spacing:.08em;gap:10px}.tagl i{display:none}}
 .pc{overflow:hidden}
 main{overflow-x:clip}
+/* ===== Живые эффекты ===== */
+/* 1. свет от курсора */
+.spot{position:fixed;left:0;top:0;width:380px;height:380px;margin:-190px 0 0 -190px;border-radius:50%;pointer-events:none;z-index:5;background:radial-gradient(circle,rgba(232,112,42,.15) 0,rgba(232,112,42,.06) 32%,transparent 66%);mix-blend-mode:screen;opacity:0;transition:opacity .4s;will-change:transform}
+.spot.on{opacity:1}
+/* 2. оранжевый курсор */
+@media(hover:hover) and (pointer:fine){
+ html,body{cursor:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M3%202l15.5%2010.2-6.7%201.1%203.9%207.3-2.6%201.4-3.9-7.3L4.4%2019z%22%20fill%3D%22%23d9773a%22%20stroke%3D%22%231a1a1a%22%20stroke-width%3D%221.4%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E") 3 2,auto}
+ a,button,label,summary,select,[data-c],[data-f],[data-k],.card,.tile,.pi,.sbtn,input[type=checkbox],input[type=range],.thumb{cursor:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2226%22%20height%3D%2228%22%20viewBox%3D%220%200%2026%2028%22%3E%3Cpath%20d%3D%22M9%2013V4.2a1.9%201.9%200%200%201%203.8%200V12l.1-1.6a1.9%201.9%200%200%201%203.8.3v1.9l.1-.8a1.9%201.9%200%200%201%203.7.4v1.5l.1-.3a1.8%201.8%200%200%201%203.5.7V18c0%204.4-3%208-7.5%208h-2.1c-2.5%200-4.4-1.2-5.8-3.2L3.4%2017.6a1.9%201.9%200%200%201%203-2.3z%22%20fill%3D%22%23d9773a%22%20stroke%3D%22%231a1a1a%22%20stroke-width%3D%221.4%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E") 9 2,pointer}
+ input:not([type=checkbox]):not([type=range]),textarea{cursor:text}
+}
+/* 3. подсветка карточек */
+.glow{position:relative}
+.glow::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:4;border-radius:inherit;padding:1px;opacity:0;transition:opacity .35s;
+ background:radial-gradient(150px circle at var(--mx,50%) var(--my,50%),rgba(255,150,70,.95),rgba(232,112,42,.3) 35%,transparent 70%);
+ -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+.glow:hover::after{opacity:1}
+.glow-in{background-image:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(232,112,42,.10),transparent 55%)}
+.card.glow:hover,.pack.glow:hover{border-color:transparent}
+/* 8. счётчики */
+.cnt{font-variant-numeric:tabular-nums}
+.hero.v4 .facts b .cnt{font-size:inherit;color:inherit;letter-spacing:inherit}
+
+@media(prefers-reduced-motion:reduce){.spot{display:none}}
 </style>
 </head>
 <body><script>document.documentElement.className="js"</script><svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="gB" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3d3d44"/><stop offset=".45" stop-color="#232327"/><stop offset="1" stop-color="#111113"/></linearGradient><radialGradient id="gR" cx=".38" cy=".34" r=".8"><stop offset="0" stop-color="#6b7283"/><stop offset=".35" stop-color="#2a2c33"/><stop offset="1" stop-color="#101012"/></radialGradient></defs></svg>
@@ -749,7 +772,7 @@ var packs=[
 document.getElementById("packList").innerHTML=packs.map(function(p,k){
  var sum=p.items.reduce(function(a,x){return a+priceNum(items[idxOf(x[0])])*x[1]},0);
  return '<div class="pack'+(p.hot?' hot':'')+'"><div class="pack-top"><em>Комплект</em><img alt="" loading="lazy" src="'+photos[p.img]+'"></div><div class="pack-b"><h3>'+p.t+'</h3><div class="who2">'+p.who+'</div><ul>'+
-  p.items.map(function(x){return '<li><span>'+esc(x[0])+'</span><b>× '+x[1]+'</b></li>'}).join("")+'</ul><div class="pp">от '+rub(sum)+'<small>за сутки, без доставки и монтажа</small></div><button type="button" class="btn fill" data-pack="'+k+'">Добавить в смету</button></div></div>'}).join("");
+  p.items.map(function(x){return '<li><span>'+esc(x[0])+'</span><b>× '+x[1]+'</b></li>'}).join("")+'</ul><div class="pp">от <span class="cnt" data-to="'+sum+'" data-rub="1">'+rub(sum)+'</span><small>за сутки, без доставки и монтажа</small></div><button type="button" class="btn fill" data-pack="'+k+'">Добавить в смету</button></div></div>'}).join("");
 
 draw();route();
 
@@ -844,10 +867,50 @@ document.getElementById("form").addEventListener("submit",function(e){
  t.innerHTML=T.map(function(x){return '<button class="tile" type="button" data-c="'+x[0]+'">'+icons[x[0]]+'<span>'+x[1]+'</span></button>'}).join("");
  t.addEventListener("click",function(ev){var b=ev.target.closest(".tile");if(b)goCat(b.dataset.c)});
  document.getElementById("facts").innerHTML=
-  '<div><b>'+items.length+'<em>+</em></b><span>позиций в каталоге</span></div>'+
-  '<div><b>'+cats.length+'</b><span>направлений техники</span></div>'+
-  '<div><b>9<em>–</em>21</b><span>на связи ежедневно</span></div>'+
-  '<div><b>1 <em>час</em></b><span>на расчёт сметы</span></div>';
+  '<div><b><span class="cnt" data-to="'+items.length+'">'+items.length+'</span><em>+</em></b><span>позиций в каталоге</span></div>'+
+  '<div><b><span class="cnt" data-to="'+cats.length+'">'+cats.length+'</span></b><span>направлений техники</span></div>'+
+  '<div><b><span class="cnt" data-to="9" data-from="0">9</span><em>–</em><span class="cnt" data-to="21" data-from="0">21</span></b><span>на связи ежедневно</span></div>'+
+  '<div><b><span class="cnt" data-to="1">1</span> <em>час</em></b><span>на расчёт сметы</span></div>';
+})();
+/* ===== Живые эффекты: свет от курсора, подсветка, счётчики ===== */
+(function(){
+ var reduce=window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+ var fine=window.matchMedia("(hover:hover) and (pointer:fine)").matches;
+
+ /* 3. подсветка карточек (вешаем на нужные блоки, в т.ч. появляющиеся позже) */
+ var GSEL=".card,.pack,.tile,.svc,.why>div,.step";
+ function markGlow(root){(root||document).querySelectorAll(GSEL).forEach(function(el){if(!el.classList.contains("glow"))el.classList.add("glow")})}
+ markGlow();
+ new MutationObserver(function(ms){ms.forEach(function(m){m.addedNodes.forEach(function(n){if(n.nodeType===1){if(n.matches&&n.matches(GSEL))n.classList.add("glow");markGlow(n)}})})}).observe(document.body,{childList:true,subtree:true});
+
+ if(fine&&!reduce){
+  /* 1. свет от курсора */
+  var spot=document.createElement("div");spot.className="spot";document.body.appendChild(spot);
+  var mx=innerWidth/2,my=innerHeight/2,sx=mx,sy=my,seen=false;
+  addEventListener("mousemove",function(e){mx=e.clientX;my=e.clientY;
+   if(!seen){seen=true;sx=mx;sy=my;spot.classList.add("on")}
+   var g=e.target.closest&&e.target.closest(".glow");
+   if(g){var r=g.getBoundingClientRect();g.style.setProperty("--mx",(mx-r.left)+"px");g.style.setProperty("--my",(my-r.top)+"px")}
+  },{passive:true});
+  document.addEventListener("mouseleave",function(){spot.classList.remove("on");seen=false});
+  (function loop(){
+   sx+=(mx-sx)*.12;sy+=(my-sy)*.12;
+   spot.style.transform="translate("+sx+"px,"+sy+"px)";
+   requestAnimationFrame(loop)})();
+ }
+
+ /* 8. набегающие цифры */
+ function fmtN(n,el){return el.dataset.rub?rub(n):String(n)}
+ function run(el){if(el.dataset.done)return;el.dataset.done=1;
+  var to=+el.dataset.to,from=+(el.dataset.from||0),t0=null,dur=to>1000?1400:1100;
+  if(reduce){el.textContent=fmtN(to,el);return}
+  function step(t){if(!t0)t0=t;var k=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-k,3),v=Math.round(from+(to-from)*e);
+   if(to>1000)v=Math.round(v/100)*100;el.textContent=fmtN(k<1?v:to,el);if(k<1)requestAnimationFrame(step)}
+  el.textContent=fmtN(from,el);requestAnimationFrame(step)}
+ if("IntersectionObserver" in window){
+  var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){run(x.target);io.unobserve(x.target)}})},{threshold:.6});
+  document.querySelectorAll(".cnt").forEach(function(el){el.textContent=fmtN(+(el.dataset.from||0),el);io.observe(el)});
+ }
 })();
 </script>
 </body>
